@@ -1,0 +1,23 @@
+<header>
+  <div class="flex header-contents">
+    <h1>SHOPMATE</h1>
+    <ul class="flex">
+      <li>Women</li>
+      <li>Men</li>
+      <li>kids</li>
+      <li>Shoes</li>
+      <li>Brands</li>
+    </ul>
+    <div class="search">
+      <fa-icon class="icon" [icon]="faSearch"></fa-icon>
+      <input type="text" placeholder="search anything">
+      <fa-icon class="close-icon" [icon]="faTimes"></fa-icon>
+    </div>
+    <div class="shopping-bag">
+      <img class="bag" src="../../assets/images/icons-bag-white.png" alt="shopping bag">
+      <div *ngIf="itemCount" class="flex flex-dir-col flex-ct item-count flex-ele-tr">
+        {{itemCount}}
+      </div>
+    </div>
+  </div>
+</header>
