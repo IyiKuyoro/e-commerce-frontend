@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -13,10 +14,12 @@ import { MenuComponent } from './menu/menu.component';
   exports: [
     HeaderComponent,
     MenuComponent,
+    FooterComponent,
   ],
   declarations: [
     HeaderComponent,
     MenuComponent,
+    FooterComponent,
   ],
   providers: [],
 })
