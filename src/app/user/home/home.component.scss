@@ -1,0 +1,47 @@
+.hero {
+  margin: 10px auto;
+  width: 90%;
+  max-width: 1300px;
+  height: 375px;
+  background: no-repeat right url("../../../assets/images/Images-modal4.png");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 10% auto auto auto 15%;
+  grid-template-rows: 35% auto;
+}
+
+.hero-header {
+  grid-column-start: 2;
+  grid-column-end: span 4;
+  grid-row-start: 1;
+  font-family: times-new-romans;
+  font-size: 60px;
+  margin: 0;
+  margin-top: auto;
+}
+
+.grid-item {
+  list-style: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.accessories {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.hood {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.leather {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+li {
+  margin: 5px 0;
+}
