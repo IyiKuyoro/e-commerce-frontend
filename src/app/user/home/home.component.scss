@@ -1,3 +1,5 @@
+$shop-red: #F62F5E;
+
 .hero {
   width: 90%;
   max-width: 1300px;
@@ -90,6 +92,57 @@ li {
   cursor: pointer;
 }
 
+.sub {
+  background-color: rgb(228, 228, 228);
+}
+
+.sub p {
+  font-size: 16px;
+}
+
+.sub div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sub-button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #FFFFFF;
+  background-color: $shop-red;
+}
+
+.sub-input-field {
+  width: 250px;
+  border-radius: 18px;
+  text-indent: 40px;
+  height: 36px;
+  font-size: 16px;
+  border: 1px solid #b9b9b9;
+  margin: 0 10px;
+}
+
+.sub-input {
+  position: relative;
+}
+
+.sub-input fa-icon {
+  position: absolute;
+  font-size: 20px;
+  left: 22px;
+  margin-top: px;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 575px) {
   .mens {
     display: block;
@@ -109,6 +162,34 @@ li {
 
 @media screen and (min-width: 575px) {
   .mobile-hero {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .sub p {
+    text-align: center;
+  }
+
+  .sub div {
+    justify-content: center;
+  }
+
+  .sub-input-field {
+    margin-bottom: 10px;
+  }
+
+  .sub-button {
+    margin-bottom: 10px;
+  }
+
+  .sub-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sub-input fa-icon {
     display: none;
   }
 }
