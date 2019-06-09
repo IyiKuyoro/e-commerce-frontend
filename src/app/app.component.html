@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container (backdropClick)="closeSideNav()">
+  <mat-sidenav #sidenav (keydown.escape)="closeSideNav()" disableClose>
+    <h1>SHOPMATE</h1>
+    <ul class="flex">
+      <li>Women</li>
+      <li>Men</li>
+      <li>kids</li>
+      <li>Shoes</li>
+      <li>Brands</li>
+    </ul>
+    <app-search></app-search>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
