@@ -1,3 +1,5 @@
+$shop-red: #F62F5E;
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,16 @@
 
 .search {
   margin: 15px;
+}
+
+p {
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+p span {
+  color: $shop-red,
 }
 
 mat-sidenav {
@@ -40,4 +52,26 @@ mat-nav-list a {
 mat-nav-list a:focus {
   color: #000000;
   background-color: #ffffff;
+}
+
+.access {
+  display: flex;
+  flex-direction: column;
+  color: $shop-red;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.access a {
+  background: #FFFFFF;
+  height: 40px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  border-radius: 20px;
 }

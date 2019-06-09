@@ -87,3 +87,9 @@ li {
 .shopping-bag:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 880px) {
+  .media-sm {
+    display: none;
+  }
+}

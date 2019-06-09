@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { GlobalService } from './shared/services/Global.Service';
+import { CartService } from './shared/services/Cart.Service';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { GlobalService } from './shared/services/Global.Service';
     SharedModule,
   ],
   providers: [
+    CartService,
     GlobalService,
   ],
   bootstrap: [AppComponent]
