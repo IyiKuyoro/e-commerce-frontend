@@ -17,6 +17,7 @@ import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.com
     HeaderComponent,
     MenuComponent,
     FooterComponent,
+    FontAwesomeModule,
     SearchComponent,
     ShoppingBagComponent,
   ],

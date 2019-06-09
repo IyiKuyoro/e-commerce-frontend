@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
+    CommonModule,
     SharedModule,
     UserRoutingModule,
   ],
