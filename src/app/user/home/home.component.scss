@@ -143,6 +143,47 @@ li {
   margin-top: 10px;
 }
 
+.brand-ad {
+  width: 90%;
+  max-width: 1300px;
+  margin: 10px auto;
+  height: 375px;
+  background: no-repeat right url("../../../assets/images/images-shoe2.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-ad h1 {
+  font-family: times-nes-romans;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 50px;
+}
+
+.brand-ad p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.brand-ad-contents {
+  margin-left: 70px;
+  width: 500px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.brand-ad button {
+  width: 200px;
+  color: #F62F5E;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 575px) {
   .mens {
     display: block;
@@ -157,6 +198,10 @@ li {
 
   .grid-item {
     font-size: 15px;
+  }
+
+  .brand-ad {
+    display: none;
   }
 }
 
