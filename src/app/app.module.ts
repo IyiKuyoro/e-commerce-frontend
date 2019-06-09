@@ -6,6 +6,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { GlobalService } from './shared/services/Global.Service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    GlobalService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

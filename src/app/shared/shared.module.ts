@@ -18,6 +18,7 @@ import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.com
     MenuComponent,
     FooterComponent,
     SearchComponent,
+    ShoppingBagComponent,
   ],
   declarations: [
     HeaderComponent,

@@ -1,14 +1,15 @@
 <mat-sidenav-container (backdropClick)="closeSideNav()">
   <mat-sidenav #sidenav (keydown.escape)="closeSideNav()" disableClose>
-    <h1>SHOPMATE</h1>
-    <ul class="flex">
-      <li>Women</li>
-      <li>Men</li>
-      <li>kids</li>
-      <li>Shoes</li>
-      <li>Brands</li>
-    </ul>
-    <app-search></app-search>
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <mat-nav-list class="flex">
+      <a [routerLink]="['']">Women</a>
+      <a [routerLink]="['']">Men</a>
+      <a [routerLink]="['']">kids</a>
+      <a [routerLink]="['']">Shoes</a>
+      <a [routerLink]="['']">Brands</a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

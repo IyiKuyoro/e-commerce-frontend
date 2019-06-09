@@ -1,14 +1,19 @@
 <header>
   <div class="flex header-contents">
     <h1>SHOPMATE</h1>
-    <ul class="flex">
+    <ul class="flex media-sm">
       <li>Women</li>
       <li>Men</li>
       <li>kids</li>
       <li>Shoes</li>
       <li>Brands</li>
     </ul>
-    <app-search></app-search>
-    <app-shopping-bag></app-shopping-bag>
+    <div class="flex space-btn media-sm">
+      <app-search></app-search>
+    </div>
+    <div class="mv-right">
+      <app-shopping-bag></app-shopping-bag>
+      <button class="menu" (click)="openSideNav()"><fa-icon [icon]="faBars"></fa-icon></button>
+    </div>
   </div>
 </header>

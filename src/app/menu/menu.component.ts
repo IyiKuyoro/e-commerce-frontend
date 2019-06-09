@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { GlobalService } from '../shared/services/Global.Service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  faBars = faBars;
 
-  constructor() { }
+  constructor(
+    private globalService: GlobalService,
+  ) { }
 
   ngOnInit() {
   }
 
+  openSideNav() {
+    this.globalService.changeSideNav(true);
+  }
 }
