@@ -1,0 +1,96 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="cats">
+  <button (click)="toggleHero()" class="mens">
+    <span *ngIf="!dispMobHero">Mens</span>
+    <fa-icon [icon]="faTimes" *ngIf="dispMobHero"></fa-icon>
+  </button>
+</div>
+<section class="hero">
+  <h2 class="hero-header">Mens Wear</h2>
+  <ul class="grid-item accessories">
+    <li>Accessories</li>
+    <li>ASOS Basic Tops</li>
+    <li>Bags</li>
+    <li>Caps & Hats</li>
+    <li>Gifts</li>
+    <li>Grooming</li>
+  </ul>
+  <ul class="grid-item hood">
+    <li>Hoodies & Sweatshirts</li>
+    <li>Jackets and Coats</li>
+    <li>Jeans</li>
+    <li>Jewellery</li>
+    <li>Joggers</li>
+    <li>Jumpers & Cardigans</li>
+  </ul>
+  <ul class="grid-item leather">
+    <li>Leather Jackets</li>
+    <li>Long Sleeve T-Shirts</li>
+    <li>Loungewear</li>
+    <li>Oversized & Longline</li>
+    <li>Polo Shirts</li>
+    <li>Shirts</li>
+  </ul>
+</section>
+<section *ngIf="dispMobHero" class="mobile-hero">
+  <h2 class="hero-header">Mens Wear</h2>
+  <ul class="grid-item accessories">
+    <li>Accessories</li>
+    <li>ASOS Basic Tops</li>
+    <li>Bags</li>
+    <li>Caps & Hats</li>
+    <li>Gifts</li>
+    <li>Grooming</li>
+  </ul>
+  <ul class="grid-item hood">
+    <li>Hoodies & Sweatshirts</li>
+    <li>Jackets and Coats</li>
+    <li>Jeans</li>
+    <li>Jewellery</li>
+    <li>Joggers</li>
+    <li>Jumpers & Cardigans</li>
+  </ul>
+  <ul class="grid-item leather">
+    <li>Leather Jackets</li>
+    <li>Long Sleeve T-Shirts</li>
+    <li>Loungewear</li>
+    <li>Oversized & Longline</li>
+    <li>Polo Shirts</li>
+    <li>Shirts</li>
+  </ul>
+</section>
+<section class="products">
+  <div class="product-display">
+    <div tabindex="1" *ngFor="let product of products" class="product-card">
+      <h1>{{product.name}}</h1>
+      <img [src]="product.thumbnail | cloudinary" alt="product image">
+      <p>{{product.price | currency:"GBP"}}</p>
+      <div class="description">
+        {{product.description}}
+        <button>Buy now</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="pages">
+  <span *ngIf="+currentPage - 1 > 1">...</span>
+  <button (click)="changePage(page)" *ngFor="let page of pages">{{page}}</button>
+  <span *ngIf="+currentPage + 3 < totalPages">...</span>
+</div>
+<section class="brand-ad">
+  <h1 class="brand-ad-contents">Converse</h1>
+  <p class="brand-ad-contents">Explore styles tough enough to handle all your workouts</p>
+  <button class="brand-ad-contents">Shop Brand</button>
+</section>
+<section aria-label="Subscribe" class="sub">
+  <div>
+    <p>SUBSCRIBE FOR SHOP NEWS, UPDATES AND SPECIAL OFFERS</p>
+    <span class="sub-input">
+      <input class="sub-input-field" type="text" placeholder="Your email here">
+      <fa-icon [icon]="faEnvelope"></fa-icon>
+      <button class="sub-button">Subscribe</button>
+    </span>
+  </div>
+</section>
+<app-footer></app-footer>
