@@ -60,6 +60,16 @@
     <li>Shirts</li>
   </ul>
 </section>
+<section class="products">
+  <div class="product-display">
+    <div tabindex="1" *ngFor="let product of products" class="product-card">
+      <h1>{{product.name}}</h1>
+      <img [src]="product.thumbnail" alt="product image">
+      <p>{{product.price | currency:"GBP"}}</p>
+      <button>Buy now</button>
+    </div>
+  </div>
+</section>
 <section class="brand-ad">
   <h1 class="brand-ad-contents">Converse</h1>
   <p class="brand-ad-contents">Explore styles tough enough to handle all your workouts</p>

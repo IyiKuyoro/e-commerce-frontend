@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { GlobalService } from './shared/services/Global.Service';
 import { CartService } from './shared/services/Cart.Service';
+import { ProductService } from './user/home/services/Products.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { CartService } from './shared/services/Cart.Service';
     BrowserAnimationsModule,
     BrowserModule,
     SharedModule,
+    HttpClientModule,
   ],
   providers: [
     CartService,
     GlobalService,
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
