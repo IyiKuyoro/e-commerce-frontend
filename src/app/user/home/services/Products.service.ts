@@ -15,7 +15,7 @@ export class ProductService {
     private http: HttpClient
   ) {}
 
-  getProducts(page: string = '1', limit: string = '10', descriptionLength: string = '50'): Observable<IApiResponse> {
+  getProducts(page: string = '1', limit: string = '10', descriptionLength: string = '150'): Observable<IApiResponse> {
     const url = `${environment.backendUrl}/products`;
 
     return this.http.get<IApiResponse>(url, {

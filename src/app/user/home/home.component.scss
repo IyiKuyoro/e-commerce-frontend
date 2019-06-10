@@ -110,12 +110,36 @@ li {
 }
 
 .product-card {
+  position: relative;
   width: 25%;
   min-width: 250px;
   margin: 15px 10px;
   text-align: center;
   box-shadow: 1px 1px 2px #dcdcdc;
   background-color: #FFFFFF
+}
+
+.description {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(61, 61, 61, 0.767);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 0 10px;
+}
+
+.product-card:hover .description {
+  visibility: visible;
+}
+
+.product-card img {
+  width: 70%;
 }
 
 .product-card button {

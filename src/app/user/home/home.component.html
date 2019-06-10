@@ -64,9 +64,12 @@
   <div class="product-display">
     <div tabindex="1" *ngFor="let product of products" class="product-card">
       <h1>{{product.name}}</h1>
-      <img [src]="product.thumbnail" alt="product image">
+      <img [src]="product.thumbnail | cloudinary" alt="product image">
       <p>{{product.price | currency:"GBP"}}</p>
-      <button>Buy now</button>
+      <div class="description">
+        {{product.description}}
+        <button>Buy now</button>
+      </div>
     </div>
   </div>
 </section>
