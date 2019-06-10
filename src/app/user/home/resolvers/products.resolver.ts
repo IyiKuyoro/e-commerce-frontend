@@ -18,7 +18,10 @@ export class ProductResolverService implements Resolve<IProductResolved> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IProductResolved> {
     return this.productService.getProducts()
       .pipe(
-        map(response => ({products: response.rows}))
+        map(response => ({
+          products: response.rows,
+          pageMeta: response.pageMeta,
+        }))
       );
   }
 }

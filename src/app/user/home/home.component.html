@@ -70,6 +70,11 @@
     </div>
   </div>
 </section>
+<div class="pages">
+  <span *ngIf="+currentPage - 1 > 1">...</span>
+  <button (click)="changePage(page)" *ngFor="let page of pages">{{page}}</button>
+  <span *ngIf="+currentPage + 3 < totalPages">...</span>
+</div>
 <section class="brand-ad">
   <h1 class="brand-ad-contents">Converse</h1>
   <p class="brand-ad-contents">Explore styles tough enough to handle all your workouts</p>
