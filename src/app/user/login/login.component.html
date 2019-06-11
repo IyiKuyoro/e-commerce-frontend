@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm">
+  <h1>Login</h1>
+  <label>
+    <p *ngIf="!loginForm.controls.email.valid && loginForm.controls['email'].touched">
+      Please provide a valid email
+    </p>
+    <input formControlName="email" placeholder=" ">
+    <span>Email</span>
+  </label>
+  <label>
+      <p *ngIf="!loginForm.controls.password.valid && loginForm.controls['password'].touched">
+        Please provide a password
+      </p>
+    <input formControlName="password" placeholder=" ">
+    <span>Password</span>
+  </label>
+  <button
+    [disabled]="!loginForm.valid"
+    [ngClass]="{disabled: !loginForm.valid}"
+    class="sub-btn"
+  >SUBMIT</button>
+</form>

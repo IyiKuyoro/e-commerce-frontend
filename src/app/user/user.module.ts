@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ImagePipe } from '../shared/pipes/Image.pipe';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     ImagePipe,
     RegisterComponent,
+    LoginComponent,
   ],
   providers: [],
 })

@@ -1,20 +1,38 @@
 <form [formGroup]="regForm">
   <h1>Register</h1>
   <label>
-    <input placeholder=" ">
+    <p *ngIf="!regForm.controls.name.valid && regForm.controls['name'].touched">
+      Please provide a valid name
+    </p>
+    <input formControlName="name" placeholder=" ">
     <span>Name</span>
   </label>
   <label>
-    <input placeholder=" ">
+    <p *ngIf="!regForm.controls.email.valid && regForm.controls['email'].touched">
+      Please provide a valid email
+    </p>
+    <input formControlName="email" placeholder=" ">
     <span>Email</span>
   </label>
   <label>
-    <input placeholder=" ">
+    <p *ngIf="!regForm.controls.password.valid && regForm.controls['password'].touched">
+      Please provide a valid password
+    </p>
+    <input formControlName="password" placeholder=" ">
     <span>Password</span>
   </label>
   <label>
-    <input placeholder=" ">
+    <p
+      *ngIf="regForm.controls['confirmPassword'].value !== regForm.controls['password'].value  && regForm.controls['confirmPassword'].touched"
+    >
+      Passwords must match
+    </p>
+    <input formControlName="confirmPassword" placeholder=" ">
     <span>Confirm</span>
   </label>
-  <button class="sub-btn">SUBMIT</button>
+  <button
+    [disabled]="!regForm.valid"
+    [ngClass]="{disabled: !regForm.valid}"
+    class="sub-btn"
+  >SUBMIT</button>
 </form>
