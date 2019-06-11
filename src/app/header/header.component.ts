@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../shared/services/Cart.Service';
+import { AuthService } from '../shared/services/Auth.Service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,10 @@ import { CartService } from '../shared/services/Cart.Service';
 export class HeaderComponent implements OnInit {
   public itemCount = 6;
   public totalPrice = 3.00;
+  userName: string;
 
   constructor(
+    private authService: AuthService,
     private cartService: CartService,
   ) { }
 
@@ -24,4 +27,14 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  getUser() {
+    const userData = this.authService.checkAuthentication();
+
+    if (userData) {
+      this.userName = JSON.parse(userData.user).name;
+      return true;
+    }
+
+    return false;
+  }
 }

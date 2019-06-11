@@ -1,5 +1,6 @@
 <form [formGroup]="regForm">
   <h1>Register</h1>
+  <p>{{regErrorMessage}}</p>
   <label>
     <p *ngIf="!regForm.controls.name.valid && regForm.controls['name'].touched">
       Please provide a valid name
@@ -18,7 +19,7 @@
     <p *ngIf="!regForm.controls.password.valid && regForm.controls['password'].touched">
       Please provide a valid password
     </p>
-    <input formControlName="password" placeholder=" ">
+    <input type="password" formControlName="password" placeholder=" ">
     <span>Password</span>
   </label>
   <label>
@@ -27,12 +28,13 @@
     >
       Passwords must match
     </p>
-    <input formControlName="confirmPassword" placeholder=" ">
+    <input type="password" formControlName="confirmPassword" placeholder=" ">
     <span>Confirm</span>
   </label>
   <button
+    (click)="onSubmit()"
     [disabled]="!regForm.valid"
-    [ngClass]="{disabled: !regForm.valid}"
+    [ngClass]="{disabled: !validFrom() || loading}"
     class="sub-btn"
-  >SUBMIT</button>
+  ><i id="loader" *ngIf="loading" class="loader fas fa-circle-notch fa-spin"></i>SUBMIT</button>
 </form>

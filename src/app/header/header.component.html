@@ -1,5 +1,11 @@
 <header class="flex media-sm">
-  <span>Hi <a>Sign in</a> of <a>Register</a></span>
+  <span *ngIf="!getUser()">
+    Hi
+    <a [routerLink]="['/login']">Sign in</a>
+    of
+    <a [routerLink]="['/register']"
+  >Register</a></span>
+  <p class="userName" *ngIf="getUser()">{{userName}}</p>
   <ul class="flex">
     <li><a>Daily Deals</a></li>
     <li><a>Sell</a></li>

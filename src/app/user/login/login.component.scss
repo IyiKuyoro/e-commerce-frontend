@@ -70,3 +70,9 @@ input:focus + span, input:not(:-ms-input-placeholder) + span {
   background-color: #bbbbbb;
   cursor: not-allowed;
 }
+
+#login-error {
+  font-size: 16px;
+  color: $shop-red;
+  text-align: center;
+}

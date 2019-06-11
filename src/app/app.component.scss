@@ -65,7 +65,8 @@ mat-nav-list a:focus {
   justify-items: center;
 }
 
-.access a {
+.access a,
+.access button {
   background: #FFFFFF;
   height: 40px;
   width: 200px;
@@ -74,4 +75,20 @@ mat-nav-list a:focus {
   align-items: center;
   margin: 5px 0;
   border-radius: 20px;
+}
+
+.access a:visited {
+  color: $shop-red;
+  text-decoration: none;
+}
+
+button {
+  color: $shop-red;
+  font-size: 15px;
+  border: none;
+}
+
+.userName {
+  color: $shop-red;
+  font-size: 18px;
 }

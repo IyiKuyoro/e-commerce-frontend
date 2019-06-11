@@ -6,6 +6,9 @@ export default interface IApiResponse {
   pageMeta?: IPageMeta;
   error?: any;
   rows?: any[];
+  customer?: any;
+  accessToken?: string;
+  expiresIn?: string;
 }
 
 export interface IPageMeta {
