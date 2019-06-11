@@ -88,6 +88,11 @@ li {
   cursor: pointer;
 }
 
+.userName {
+  color: $shop-red;
+  font-size: 18px;
+}
+
 @media screen and (max-width: 880px) {
   .media-sm {
     display: none;

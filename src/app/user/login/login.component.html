@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm">
+  <h1>Login</h1>
+  <p id="login-error">{{loginErrorMessage}}</p>
+  <label>
+    <p *ngIf="!loginForm.controls.email.valid && loginForm.controls['email'].touched">
+      Please provide a valid email
+    </p>
+    <input type="text" formControlName="email" placeholder=" ">
+    <span>Email</span>
+  </label>
+  <label>
+      <p *ngIf="!loginForm.controls.password.valid && loginForm.controls['password'].touched">
+        Please provide a password
+      </p>
+    <input type="password" formControlName="password" placeholder=" ">
+    <span>Password</span>
+  </label>
+  <button
+    (click)="this.onSubmit()"
+    [disabled]="!loginForm.valid"
+    [ngClass]="{disabled: !loginForm.valid || loading}"
+    class="sub-btn"
+  ><i id="loader" *ngIf="loading" class="loader fas fa-circle-notch fa-spin"></i>SUBMIT</button>
+</form>

@@ -20,6 +20,10 @@ $shop-red: #F62F5E;
   margin-right: 10px;
 }
 
+.shopping-bag:hover {
+  cursor: pointer;
+}
+
 .bag {
   position: absolute;
   left: 0;

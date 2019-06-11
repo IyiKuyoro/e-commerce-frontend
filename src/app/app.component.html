@@ -3,6 +3,7 @@
     <div class="search">
       <app-search></app-search>
     </div>
+    <p class="userName" *ngIf="getUser()">{{userName}}</p>
     <p>Your bag: <span>{{ totalPrice | currency:'GBP'}}</span></p>
     <mat-nav-list class="nav" class="flex">
       <a [routerLink]="['']">Women</a>
@@ -12,11 +13,27 @@
       <a [routerLink]="['']">Brands</a>
     </mat-nav-list>
     <div class="access">
-      <a>SignIn</a>
-      <a>Register</a>
+      <a
+        (click)="closeSideNav()"
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        *ngIf="!getUser()"
+        tabindex="1"
+      >SignIn</a>
+      <a
+        (click)="closeSideNav()"
+        [routerLink]="['/register']"
+        routerLinkActive="router-link-active"
+        *ngIf="!getUser()"
+        tabindex="1"
+      >Register</a>
+      <button *ngIf="getUser()">Log Out</button>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
+    <app-header></app-header>
+    <app-menu></app-menu>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

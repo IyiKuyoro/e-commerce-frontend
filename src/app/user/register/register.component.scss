@@ -1,0 +1,72 @@
+$shop-red: #F62F5E;
+
+h1 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: lighter;
+}
+
+p {
+  text-align: center;
+  color: $shop-red;
+  margin: 0 0 5px 0;
+}
+
+form {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+label {
+  position: relative;
+  width: 100%;
+  font-size: 16px;
+}
+
+label input {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-bottom: 1px solid #969696;
+  text-indent: 20px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+label span {
+  color: #505050;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 20px;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+input:focus + span, input:not(:placeholder-shown) + span {
+  opacity:1;
+  transform: scale(0.75) translateY(-130%)
+}
+
+/* For IE Browsers*/
+input:focus + span, input:not(:-ms-input-placeholder) + span {
+  opacity:1;
+  transform: scale(0.75) translateY(-130%)
+}
+
+.sub-btn {
+  font-size: 14px;
+  width: 100%;
+  margin: 10px auto;
+  height: 40px;
+  border: none;
+  background-color: $shop-red;
+  color: #FFFFFF;
+}
+
+.disabled {
+  background-color: #bbbbbb;
+  cursor: not-allowed;
+}

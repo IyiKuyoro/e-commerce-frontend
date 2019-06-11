@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import { GlobalService } from '../shared/services/Global.Service';
 
 @Component({

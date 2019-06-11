@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material';
 
 import { GlobalService } from './shared/services/Global.Service';
 import { CartService } from './shared/services/Cart.Service';
+import { AuthService } from './shared/services/Auth.Service';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   totalPrice: number;
   itemCount: number;
+  userName: string;
 
   constructor(
     private globalService: GlobalService,
     private cartService: CartService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -37,4 +40,14 @@ export class AppComponent implements OnInit {
     this.globalService.changeSideNav(false);
   }
 
+  getUser() {
+    const userData = this.authService.checkAuthentication();
+
+    if (userData) {
+      this.userName = JSON.parse(userData.user).name;
+      return true;
+    }
+
+    return false;
+  }
 }
