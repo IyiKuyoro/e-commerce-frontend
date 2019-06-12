@@ -5,12 +5,16 @@ import { RegisterComponent } from './register/register.component';
 import { ProductResolverService } from './home/resolvers/products.resolver';
 import { LoginComponent } from './login/login.component';
 import { AuthPagesGuard } from './guard/AuthPageGuard.guard';
+import { DepartmentResolverService } from './home/resolvers/department.resolver';
 
 export const userRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    resolve: { resolvedData: ProductResolverService }
+    resolve: {
+      resolvedData: ProductResolverService,
+      resolvedDepartments: DepartmentResolverService,
+    },
   },
   {
     path: 'register',

@@ -1,4 +1,5 @@
 import IProduct from './IProduct';
+import { IDepartment } from './IDepartment';
 
 export default interface IApiResponse {
   success: boolean;
@@ -22,4 +23,9 @@ export interface IProductResolved {
   error?: any;
   products?: IProduct[];
   pageMeta?: IPageMeta;
+}
+
+export interface IDepartmentResolved {
+  error?: any;
+  departments?: IDepartment[];
 }

@@ -60,6 +60,13 @@
 </section>
 <section class="products">
   <div class="product-display">
+    <div class="filter-controls">
+      <h2>Departments</h2>
+      <mat-radio-group (change)="onDepartmentChange($event)" aria-label="Select a department">
+        <mat-radio-button value="0">All</mat-radio-button>
+        <mat-radio-button *ngFor="let department of departments" [value]="department.department_id">{{department.name}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
     <div tabindex="1" *ngFor="let product of products" class="product-card">
       <h1>{{product.name}}</h1>
       <img [src]="product.thumbnail | cloudinary" alt="product image">
