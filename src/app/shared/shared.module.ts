@@ -9,6 +9,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.component';
 import { RouterModule } from '@angular/router';
+import { AngularMaterialModule } from '../angular-material.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
     FontAwesomeModule,
     HttpClientModule,
     RouterModule,
+    AngularMaterialModule,
   ],
   exports: [
     HeaderComponent,

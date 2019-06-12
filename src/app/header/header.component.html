@@ -5,7 +5,10 @@
     of
     <a [routerLink]="['/register']"
   >Register</a></span>
-  <p class="userName" *ngIf="getUser()">{{userName}}</p>
+  <p *ngIf="getUser()" class="userName" mat-button [matMenuTriggerFor]="menu">{{userName}}</p>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onLogOut()">Log Out</button>
+  </mat-menu>
   <ul class="flex">
     <li><a>Daily Deals</a></li>
     <li><a>Sell</a></li>
