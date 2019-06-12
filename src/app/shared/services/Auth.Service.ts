@@ -38,6 +38,10 @@ export class AuthService {
     );
   }
 
+  logOut() {
+    localStorage.clear();
+  }
+
   private saveUser(res: IApiResponse) {
     if (res.success) {
       const user: ICustomer = {};

@@ -50,4 +50,9 @@ export class AppComponent implements OnInit {
 
     return false;
   }
+
+  onLogOut() {
+    this.authService.logOut();
+    this.closeSideNav();
+  }
 }
