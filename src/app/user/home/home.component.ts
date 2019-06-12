@@ -4,6 +4,7 @@ import { ProductService } from './services/Products.service';
 import IProduct from 'src/app/shared/models/IProduct';
 import { ActivatedRoute } from '@angular/router';
 import IApiResponse from 'src/app/shared/models/IApiResponse';
+import { IDepartment } from 'src/app/shared/models/IDepartment';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,12 @@ import IApiResponse from 'src/app/shared/models/IApiResponse';
 export class HomeComponent implements OnInit {
   dispMobHero = false;
   products: IProduct[];
+  departments: IDepartment[];
   currentPage: number;
   totalPages: number;
   totalProducts: number;
   pages: number[];
+  selectedDepartment: number;
   faTimes = faTimes;
   faEnvelope = faEnvelope;
 
@@ -26,10 +29,12 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.selectedDepartment = 0;
     this.products = this.route.snapshot.data.resolvedData.products;
     this.currentPage = this.route.snapshot.data.resolvedData.pageMeta.page;
     this.totalPages = this.route.snapshot.data.resolvedData.pageMeta.totalPages;
     this.totalProducts = this.route.snapshot.data.resolvedData.pageMeta.totalProducts;
+    this.departments = this.route.snapshot.data.resolvedDepartments.departments;
     this.computePages();
   }
 
@@ -38,13 +43,26 @@ export class HomeComponent implements OnInit {
   }
 
   changePage(page: number) {
-    this.productService.getProducts(page.toString(), '10', '50').subscribe((response: IApiResponse) => {
-      this.products = response.rows;
-      this.totalPages = response.pageMeta.totalPages;
-      this.totalProducts = response.pageMeta.totalProducts;
-      this.currentPage = response.pageMeta.page;
-      this.computePages();
-    });
+    if (+this.selectedDepartment === 0) {
+      this.productService.getProducts(page.toString()).subscribe((response: IApiResponse) => {
+        this.products = response.rows;
+        this.totalPages = response.pageMeta.totalPages;
+        this.totalProducts = response.pageMeta.totalProducts;
+        this.currentPage = response.pageMeta.page;
+        this.computePages();
+      });
+    } else {
+        this.productService.getProductsByDepartment(
+          this.selectedDepartment,
+          page.toString(),
+        ).subscribe((response: IApiResponse) => {
+          this.products = response.rows;
+          this.totalPages = response.pageMeta.totalPages;
+          this.totalProducts = response.pageMeta.totalProducts;
+          this.currentPage = response.pageMeta.page;
+          this.computePages();
+        });
+    }
   }
 
   computePages() {
@@ -62,6 +80,31 @@ export class HomeComponent implements OnInit {
       } else {
         break;
       }
+    }
+  }
+
+  onDepartmentChange(event: any) {
+    this.selectedDepartment = event.value;
+    if (+event.value !== 0) {
+      this.productService.getProductsByDepartment(event.value)
+        .subscribe((response: IApiResponse) => {
+          this.currentPage = response.pageMeta.page;
+          this.totalPages = response.pageMeta.totalPages;
+          this.totalProducts = response.pageMeta.totalProducts;
+          this.products = response.rows;
+
+          this.computePages();
+        });
+    } else {
+      this.productService.getProducts()
+        .subscribe((response: IApiResponse) => {
+          this.currentPage = response.pageMeta.page;
+          this.totalPages = response.pageMeta.totalPages;
+          this.totalProducts = response.pageMeta.totalProducts;
+          this.products = response.rows;
+
+          this.computePages();
+        });
     }
   }
 }

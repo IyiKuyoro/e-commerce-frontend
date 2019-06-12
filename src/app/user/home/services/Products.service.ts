@@ -15,7 +15,7 @@ export class ProductService {
     private http: HttpClient
   ) {}
 
-  getProducts(page: string = '1', limit: string = '10', descriptionLength: string = '150'): Observable<IApiResponse> {
+  getProducts(page: string = '1', limit: string = '20', descriptionLength: string = '150'): Observable<IApiResponse> {
     const url = `${environment.backendUrl}/products`;
 
     return this.http.get<IApiResponse>(url, {
@@ -28,6 +28,28 @@ export class ProductService {
       .pipe(
         catchError(this.handleError)
       );
+  }
+
+  getProductsByDepartment(
+    id: number,
+    page: string = '1',
+    limit: string = '20',
+    descriptionLength: string = '150',
+  ): Observable<IApiResponse> {
+    const url = `${environment.backendUrl}/products/inDepartment/${id}`;
+
+    return this.http.get<IApiResponse>(
+      url,
+      {
+        params: {
+          page,
+          limit,
+          descriptionLength,
+        }
+      }
+    ).pipe(
+      catchError(this.handleError)
+    );
   }
 
   handleError(error: HttpErrorResponse) {

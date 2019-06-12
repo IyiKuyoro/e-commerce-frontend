@@ -8,9 +8,11 @@ import { SharedModule } from '../shared/shared.module';
 import { ImagePipe } from '../shared/pipes/Image.pipe';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AngularMaterialModule } from '../angular-material.module';
 
 @NgModule({
   imports: [
+    AngularMaterialModule,
     CommonModule,
     SharedModule,
     UserRoutingModule,

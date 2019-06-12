@@ -93,12 +93,40 @@ li {
 }
 
 .products {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
   max-width: 1300px;
-  grid-template-columns: 250px auto;
-  grid-template-rows: 100%;
+}
+
+.filter-controls {
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 3px 1px #a9a9a9;
+  margin: 15px 0;
+}
+
+.filter-controls mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.filter-controls mat-radio-button {
+  margin: 5px 0;
+  font-family: 'Nunito', sans-serif;
+  margin-left: 10px;
+}
+
+.filter-controls h2 {
+  color: #1C1C1C;
+  font-size: 16px;
+  text-align: center;
+  font-weight: lighter;
 }
 
 .product-display {
@@ -106,14 +134,14 @@ li {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .product-card {
   position: relative;
-  width: 25%;
+  width: 23%;
   min-width: 250px;
-  margin: 15px 10px;
+  margin: 15px 4px;
   text-align: center;
   box-shadow: 1px 1px 2px #dcdcdc;
   background-color: #FFFFFF
@@ -340,5 +368,27 @@ li {
 
   .sub-input fa-icon {
     display: none;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .filter-controls h2 {
+    display: none;
+  }
+
+  .filter-controls {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .filter-controls mat-radio-group {
+    flex-direction: row;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+  }
+
+  .product-display {
+    justify-content: space-evenly;
   }
 }

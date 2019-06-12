@@ -12,6 +12,7 @@ import { CartService } from './shared/services/Cart.Service';
 import { ProductService } from './user/home/services/Products.service';
 import { AuthService } from './shared/services/Auth.Service';
 import { RouterModule } from '@angular/router';
+import { DepartmentService } from './user/home/services/Department.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RouterModule } from '@angular/router';
   providers: [
     AuthService,
     CartService,
+    DepartmentService,
     GlobalService,
     ProductService,
   ],
