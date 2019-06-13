@@ -52,6 +52,28 @@ export class ProductService {
     );
   }
 
+  getProductsByCategory(
+    id: number,
+    page: string = '1',
+    limit: string = '20',
+    descriptionLength: string = '150',
+  ): Observable<IApiResponse> {
+    const url = `${environment.backendUrl}/products/inCategories/${id}`;
+
+    return this.http.get<IApiResponse>(
+      url,
+      {
+        params: {
+          page,
+          limit,
+          descriptionLength,
+        }
+      }
+    ).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   handleError(error: HttpErrorResponse) {
     console.log(error.message);
     return throwError(error.message);
