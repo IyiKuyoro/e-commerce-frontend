@@ -5,6 +5,6 @@ export default interface IProduct {
   price: number;
   discounted_price: number;
   image?: string;
-  image2?: string;
-  thumbnail: string;
+  image_2?: string;
+  thumbnail?: string;
 }

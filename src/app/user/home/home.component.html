@@ -75,7 +75,9 @@
         </mat-radio-group>
       </div>
     </div>
-    <div tabindex="1" *ngFor="let product of products" class="product-card">
+    <div tabindex="1" *ngFor="let product of products"
+      class="product-card" [routerLink]="'/product/'+product.product_id"
+      routerLinkActive="router-link-active" >
       <h1>{{product.name}}</h1>
       <img [src]="product.thumbnail | cloudinary" alt="product image">
       <p>{{product.price | currency:"GBP"}}</p>
