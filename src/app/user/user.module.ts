@@ -9,6 +9,7 @@ import { ImagePipe } from '../shared/pipes/Image.pipe';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AngularMaterialModule } from '../angular-material.module';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { AngularMaterialModule } from '../angular-material.module';
     ImagePipe,
     RegisterComponent,
     LoginComponent,
+    ProductComponent,
   ],
   providers: [],
 })

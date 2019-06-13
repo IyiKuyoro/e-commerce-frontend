@@ -14,6 +14,7 @@ import { AuthService } from './shared/services/Auth.Service';
 import { RouterModule } from '@angular/router';
 import { DepartmentService } from './user/home/services/Department.service';
 import { CategoryService } from './user/home/services/Category.service';
+import { ProductDetailsService } from './user/product/services/Product.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CategoryService } from './user/home/services/Category.service';
     DepartmentService,
     GlobalService,
     ProductService,
+    ProductDetailsService,
   ],
   bootstrap: [AppComponent]
 })

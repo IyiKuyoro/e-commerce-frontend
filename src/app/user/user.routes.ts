@@ -6,6 +6,8 @@ import { ProductResolverService } from './home/resolvers/products.resolver';
 import { LoginComponent } from './login/login.component';
 import { AuthPagesGuard } from './guard/AuthPageGuard.guard';
 import { DepartmentResolverService } from './home/resolvers/department.resolver';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailsResolverService } from './product/resolvers/ProductDetails.resolver';
 
 export const userRoutes: Routes = [
   {
@@ -25,5 +27,12 @@ export const userRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthPagesGuard],
+  },
+  {
+    path: 'product/:productId',
+    component: ProductComponent,
+    resolve: {
+      resolvedProduct: ProductDetailsResolverService,
+    }
   }
 ];
