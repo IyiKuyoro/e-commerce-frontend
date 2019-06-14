@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import IProduct from 'src/app/shared/models/IProduct';
 import { IDepartment } from 'src/app/shared/models/IDepartment';
 import { ActivatedRoute } from '@angular/router';
@@ -23,7 +23,6 @@ export class ProductsComponent implements OnInit {
   pages: number[];
   selectedDepartment: number;
   selectedCategory: number;
-  faTimes = faTimes;
   faEnvelope = faEnvelope;
 
   constructor(
