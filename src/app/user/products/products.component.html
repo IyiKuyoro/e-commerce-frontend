@@ -1,0 +1,50 @@
+<section class="products">
+    <div class="product-display">
+      <div class="filter-controls">
+        <div>
+          <h2>Departments</h2>
+          <mat-radio-group (change)="onDepartmentChange($event)" aria-label="Select a department">
+            <mat-radio-button value="0">All</mat-radio-button>
+            <mat-radio-button *ngFor="let department of departments" [value]="department.department_id">{{department.name}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div *ngIf="categories.length > 0">
+          <h2>Categories</h2>
+          <mat-radio-group (change)="onCategoryChange($event)" aria-label="Select a category">
+            <mat-radio-button *ngFor="let category of categories" [value]="category.category_id">{{category.name}}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div tabindex="1" *ngFor="let product of products"
+        class="product-card" [routerLink]="'/product/'+product.product_id"
+        routerLinkActive="router-link-active" >
+        <h1>{{product.name}}</h1>
+        <img [src]="product.thumbnail | cloudinary" alt="product image">
+        <p>{{product.price | currency:"GBP"}}</p>
+        <div class="description">
+          {{product.description}}
+          <button>Buy now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="pages">
+    <span *ngIf="+currentPage - 1 > 1">...</span>
+    <button (click)="changePage(page)" *ngFor="let page of pages">{{page}}</button>
+    <span *ngIf="+currentPage + 3 < totalPages">...</span>
+  </div>
+  <section class="brand-ad">
+    <h1 class="brand-ad-contents">Converse</h1>
+    <p class="brand-ad-contents">Explore styles tough enough to handle all your workouts</p>
+    <button class="brand-ad-contents">Shop Brand</button>
+  </section>
+  <section aria-label="Subscribe" class="sub">
+    <div>
+      <p>SUBSCRIBE FOR SHOP NEWS, UPDATES AND SPECIAL OFFERS</p>
+      <span class="sub-input">
+        <input class="sub-input-field" type="text" placeholder="Your email here">
+        <fa-icon [icon]="faEnvelope"></fa-icon>
+        <button class="sub-button">Subscribe</button>
+      </span>
+    </div>
+  </section>

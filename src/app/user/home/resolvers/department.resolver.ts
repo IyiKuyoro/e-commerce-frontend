@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { IDepartmentResolved } from 'src/app/shared/models/IApiResponse';
 import { map } from 'rxjs/operators';
-import { DepartmentService } from '../services/Department.service';
+import { DepartmentService } from '../../products/services/Department.service';
 
 @Injectable({
   providedIn: 'root'
