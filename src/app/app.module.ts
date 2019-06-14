@@ -15,10 +15,12 @@ import { RouterModule } from '@angular/router';
 import { DepartmentService } from './user/home/services/Department.service';
 import { CategoryService } from './user/home/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
+import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SocialRedirectComponent
   ],
   imports: [
     AppRoutingModule,
