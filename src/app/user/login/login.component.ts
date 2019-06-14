@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { AuthService } from 'src/app/shared/services/Auth.Service';
 import IApiResponse from 'src/app/shared/models/IApiResponse';
-import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -29,6 +30,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((param) => {
+      if (param.socialAuth && param.socialAuth === 'failure') {
+        this.loginErrorMessage = 'Google authentication failed!';
+      }
+    });
   }
 
   onSubmit() {

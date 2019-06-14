@@ -26,6 +26,7 @@ import { AngularMaterialModule } from '../angular-material.module';
     FontAwesomeModule,
     SearchComponent,
     ShoppingBagComponent,
+    RouterModule,
   ],
   declarations: [
     HeaderComponent,

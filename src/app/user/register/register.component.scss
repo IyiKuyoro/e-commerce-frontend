@@ -70,3 +70,7 @@ input:focus + span, input:not(:-ms-input-placeholder) + span {
   background-color: #bbbbbb;
   cursor: not-allowed;
 }
+
+.separator {
+  color: #505050;
+}

@@ -1,110 +1,39 @@
-<div class="cats">
-  <button (click)="toggleHero()" class="mens">
-    <span *ngIf="!dispMobHero">Mens</span>
-    <fa-icon [icon]="faTimes" *ngIf="dispMobHero"></fa-icon>
-  </button>
-</div>
-<section class="hero">
-  <h2 class="hero-header">Mens Wear</h2>
-  <ul class="grid-item accessories">
-    <li>Accessories</li>
-    <li>ASOS Basic Tops</li>
-    <li>Bags</li>
-    <li>Caps & Hats</li>
-    <li>Gifts</li>
-    <li>Grooming</li>
-  </ul>
-  <ul class="grid-item hood">
-    <li>Hoodies & Sweatshirts</li>
-    <li>Jackets and Coats</li>
-    <li>Jeans</li>
-    <li>Jewellery</li>
-    <li>Joggers</li>
-    <li>Jumpers & Cardigans</li>
-  </ul>
-  <ul class="grid-item leather">
-    <li>Leather Jackets</li>
-    <li>Long Sleeve T-Shirts</li>
-    <li>Loungewear</li>
-    <li>Oversized & Longline</li>
-    <li>Polo Shirts</li>
-    <li>Shirts</li>
-  </ul>
-</section>
-<section *ngIf="dispMobHero" class="mobile-hero">
-  <h2 class="hero-header">Mens Wear</h2>
-  <ul class="grid-item accessories">
-    <li>Accessories</li>
-    <li>ASOS Basic Tops</li>
-    <li>Bags</li>
-    <li>Caps & Hats</li>
-    <li>Gifts</li>
-    <li>Grooming</li>
-  </ul>
-  <ul class="grid-item hood">
-    <li>Hoodies & Sweatshirts</li>
-    <li>Jackets and Coats</li>
-    <li>Jeans</li>
-    <li>Jewellery</li>
-    <li>Joggers</li>
-    <li>Jumpers & Cardigans</li>
-  </ul>
-  <ul class="grid-item leather">
-    <li>Leather Jackets</li>
-    <li>Long Sleeve T-Shirts</li>
-    <li>Loungewear</li>
-    <li>Oversized & Longline</li>
-    <li>Polo Shirts</li>
-    <li>Shirts</li>
-  </ul>
-</section>
-<section class="products">
-  <div class="product-display">
-    <div class="filter-controls">
-      <div>
-        <h2>Departments</h2>
-        <mat-radio-group (change)="onDepartmentChange($event)" aria-label="Select a department">
-          <mat-radio-button value="0">All</mat-radio-button>
-          <mat-radio-button *ngFor="let department of departments" [value]="department.department_id">{{department.name}}</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <div *ngIf="categories.length > 0">
-        <h2>Categories</h2>
-        <mat-radio-group (change)="onCategoryChange($event)" aria-label="Select a category">
-          <mat-radio-button *ngFor="let category of categories" [value]="category.category_id">{{category.name}}</mat-radio-button>
-        </mat-radio-group>
-      </div>
+<mat-sidenav-container (backdropClick)="closeSideNav()">
+  <mat-sidenav #sidenav (keydown.escape)="closeSideNav()" disableClose>
+    <div class="search">
+      <app-search></app-search>
     </div>
-    <div tabindex="1" *ngFor="let product of products"
-      class="product-card" [routerLink]="'/product/'+product.product_id"
-      routerLinkActive="router-link-active" >
-      <h1>{{product.name}}</h1>
-      <img [src]="product.thumbnail | cloudinary" alt="product image">
-      <p>{{product.price | currency:"GBP"}}</p>
-      <div class="description">
-        {{product.description}}
-        <button>Buy now</button>
-      </div>
+    <p class="userName" *ngIf="getUser()">{{userName}}</p>
+    <p>Your bag: <span>{{ totalPrice | currency:'GBP'}}</span></p>
+    <mat-nav-list class="nav" class="flex">
+      <a [routerLink]="['']">Women</a>
+      <a [routerLink]="['']">Men</a>
+      <a [routerLink]="['']">kids</a>
+      <a [routerLink]="['']">Shoes</a>
+      <a [routerLink]="['']">Brands</a>
+    </mat-nav-list>
+    <div class="access">
+      <a
+        (click)="closeSideNav()"
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        *ngIf="!getUser()"
+        tabindex="1"
+      >SignIn</a>
+      <a
+        (click)="closeSideNav()"
+        [routerLink]="['/register']"
+        routerLinkActive="router-link-active"
+        *ngIf="!getUser()"
+        tabindex="1"
+      >Register</a>
+      <button (click)="onLogOut()" *ngIf="getUser()">Log Out</button>
     </div>
-  </div>
-</section>
-<div class="pages">
-  <span *ngIf="+currentPage - 1 > 1">...</span>
-  <button (click)="changePage(page)" *ngFor="let page of pages">{{page}}</button>
-  <span *ngIf="+currentPage + 3 < totalPages">...</span>
-</div>
-<section class="brand-ad">
-  <h1 class="brand-ad-contents">Converse</h1>
-  <p class="brand-ad-contents">Explore styles tough enough to handle all your workouts</p>
-  <button class="brand-ad-contents">Shop Brand</button>
-</section>
-<section aria-label="Subscribe" class="sub">
-  <div>
-    <p>SUBSCRIBE FOR SHOP NEWS, UPDATES AND SPECIAL OFFERS</p>
-    <span class="sub-input">
-      <input class="sub-input-field" type="text" placeholder="Your email here">
-      <fa-icon [icon]="faEnvelope"></fa-icon>
-      <button class="sub-button">Subscribe</button>
-    </span>
-  </div>
-</section>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header></app-header>
+    <app-menu></app-menu>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

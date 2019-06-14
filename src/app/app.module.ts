@@ -9,16 +9,18 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { GlobalService } from './shared/services/Global.Service';
 import { CartService } from './shared/services/Cart.Service';
-import { ProductService } from './user/home/services/Products.service';
+import { ProductService } from './user/products/services/Products.service';
 import { AuthService } from './shared/services/Auth.Service';
 import { RouterModule } from '@angular/router';
-import { DepartmentService } from './user/home/services/Department.service';
-import { CategoryService } from './user/home/services/Category.service';
+import { DepartmentService } from './user/products/services/Department.service';
+import { CategoryService } from './user/products/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
+import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SocialRedirectComponent
   ],
   imports: [
     AppRoutingModule,

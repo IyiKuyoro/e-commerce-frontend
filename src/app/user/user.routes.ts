@@ -8,31 +8,38 @@ import { AuthPagesGuard } from './guard/AuthPageGuard.guard';
 import { DepartmentResolverService } from './home/resolvers/department.resolver';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsResolverService } from './product/resolvers/ProductDetails.resolver';
+import { ProductsComponent } from './products/products.component';
 
 export const userRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    resolve: {
-      resolvedData: ProductResolverService,
-      resolvedDepartments: DepartmentResolverService,
-    },
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    canActivate: [AuthPagesGuard],
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [AuthPagesGuard],
-  },
-  {
-    path: 'product/:productId',
-    component: ProductComponent,
-    resolve: {
-      resolvedProduct: ProductDetailsResolverService,
-    }
+    children: [
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [AuthPagesGuard],
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [AuthPagesGuard],
+      },
+      {
+        path: 'product/:productId',
+        component: ProductComponent,
+        resolve: {
+          resolvedProduct: ProductDetailsResolverService,
+        }
+      },
+      {
+        path: '',
+        component: ProductsComponent,
+        resolve: {
+          resolvedData: ProductResolverService,
+          resolvedDepartments: DepartmentResolverService,
+        },
+      }
+    ],
   }
 ];

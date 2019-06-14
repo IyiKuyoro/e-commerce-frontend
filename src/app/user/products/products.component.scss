@@ -1,0 +1,398 @@
+$shop-red: #F62F5E;
+
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.filter-controls {
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 3px 1px #a9a9a9;
+  margin: 15px 0;
+}
+
+.filter-controls mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.filter-controls mat-radio-button {
+  margin: 5px 0;
+  font-family: 'Nunito', sans-serif;
+  margin-left: 10px;
+}
+
+.filter-controls h2 {
+  color: #1C1C1C;
+  font-size: 16px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.product-display {
+  width: 100%;
+  grid-column-start: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-card {
+  position: relative;
+  width: 23%;
+  min-width: 250px;
+  margin: 15px 4px;
+  text-align: center;
+  box-shadow: 1px 1px 2px #dcdcdc;
+  background-color: #FFFFFF
+}
+
+.description {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(61, 61, 61, 0.767);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 0 10px;
+}
+
+.product-card:hover .description {
+  visibility: visible;
+}
+
+.product-card img {
+  width: 70%;
+}
+
+.product-card button {
+  visibility: hidden;
+  background-color: $shop-red;
+  height: 40px;
+  border: none;
+  width: 150px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.product-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 14px 18px 13px #dcdcdc;
+}
+
+.product-card:hover button {
+  visibility: visible;
+}
+
+.product-card p {
+  color: $shop-red;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.sub {
+  background-color: rgb(228, 228, 228);
+}
+
+.sub p {
+  font-size: 16px;
+}
+
+.sub div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sub-button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #FFFFFF;
+  background-color: $shop-red;
+}
+
+.sub-input-field {
+  width: 250px;
+  border-radius: 18px;
+  text-indent: 40px;
+  height: 36px;
+  font-size: 16px;
+  border: 1px solid #b9b9b9;
+  margin: 0 10px;
+}
+
+.sub-input {
+  position: relative;
+}
+
+.sub-input fa-icon {
+  position: absolute;
+  font-size: 20px;
+  left: 22px;
+  margin-top: px;
+  margin-top: 10px;
+}
+
+.brand-ad {
+  width: 90%;
+  max-width: 1300px;
+  margin: 10px auto;
+  height: 375px;
+  background: no-repeat right url("../../../assets/images/images-shoe2.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-ad h1 {
+  font-family: times-nes-romans;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 50px;
+}
+
+.brand-ad p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.brand-ad-contents {
+  margin-left: 70px;
+  width: 500px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.brand-ad button {
+  width: 200px;
+  color: #F62F5E;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+}
+
+.pages {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.pages button {
+  width: 30px;
+  height: 30px;
+  background-color: #F62F5E;
+  color: #FFFFFF;
+  margin: 5px;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.pages span {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+.cats {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.mens {
+  display: none;
+  height: 35px;
+  min-width: 35px;
+  border-radius: 17.5px;
+  color: #1C1C1C;
+  box-shadow: 3px 3px 4px 0px #b9b9b9;
+  font-size: 20px;
+  font-family: times-new-romans;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+
+.hero {
+  width: 90%;
+  max-width: 1300px;
+  margin: 10px auto;
+  height: 375px;
+  background: no-repeat right url("../../../assets/images/Images-modal4.png");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 10% auto auto auto 15%;
+  grid-template-rows: 25% auto;
+}
+
+.mobile-hero {
+  overflow-y: scroll;
+  width: 100%;
+  height: 250px;
+  background: no-repeat right url("../../../assets/images/Images-modal4.png");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 5% auto auto auto 15%;
+  grid-template-rows: 25% auto;
+}
+
+.mobile-hero ul {
+  width: 150px;
+  margin-left: 0;
+}
+
+.hero-header {
+  grid-column-start: 2;
+  grid-column-end: span 4;
+  grid-row-start: 1;
+  font-family: times-new-romans;
+  font-size: 60px;
+  margin: 0;
+  margin-top: auto;
+}
+
+.grid-item {
+  list-style: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-size: 20px;
+  margin: 10px 15px 0 15px;
+}
+
+.accessories {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.hood {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.leather {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.mens {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+  .brand-ad {
+    display: none;
+  }
+
+  .mens {
+    display: block;
+  }
+  .hero {
+    display: none;
+  }
+
+  .hero-header {
+    font-size: 35px;
+  }
+
+  .grid-item {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .mobile-hero {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .sub p {
+    text-align: center;
+  }
+
+  .sub div {
+    justify-content: center;
+  }
+
+  .sub-input-field {
+    margin-bottom: 10px;
+  }
+
+  .sub-button {
+    margin-bottom: 10px;
+  }
+
+  .sub-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sub-input fa-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .filter-controls h2 {
+    display: none;
+  }
+
+  .filter-controls {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    overflow-x: scroll;
+  }
+
+  .filter-controls mat-radio-group {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: scroll;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+
+  .product-display {
+    justify-content: space-evenly;
+  }
+}

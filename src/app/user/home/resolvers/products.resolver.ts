@@ -3,7 +3,7 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { map } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
-import { ProductService } from '../services/Products.service';
+import { ProductService } from '../../products/services/Products.service';
 import { IProductResolved } from 'src/app/shared/models/IApiResponse';
 
 @Injectable({
