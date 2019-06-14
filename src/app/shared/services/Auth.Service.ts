@@ -71,6 +71,15 @@ export class AuthService {
     }
   }
 
+  socialAuth(media: string, code: string) {
+    const url = `${environment.backendUrl}/auth/${media}/callback?code=${code}`;
+
+    return this.http.get<IApiResponse>(url)
+      .pipe(
+        tap(this.saveUser),
+      );
+  }
+
   handleError(error: HttpErrorResponse) {
     console.log(error.message);
     return throwError(error.message);
