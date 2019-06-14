@@ -1,7 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { GlobalService } from 'src/app/shared/services/Global.Service';
 import { CartService } from 'src/app/shared/services/Cart.Service';
 import { AuthService } from 'src/app/shared/services/Auth.Service';
@@ -14,8 +13,6 @@ import { AuthService } from 'src/app/shared/services/Auth.Service';
 export class HomeComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
 
-  dispMobHero = false;
-  faTimes = faTimes;
   totalPrice: number;
   itemCount: number;
   userName: string;
@@ -38,10 +35,6 @@ export class HomeComponent implements OnInit {
     this.cartService.totalPrice.subscribe((cost: number) => {
       this.totalPrice = cost;
     });
-  }
-
-  toggleHero(): void {
-    this.dispMobHero = !this.dispMobHero;
   }
 
   closeSideNav() {

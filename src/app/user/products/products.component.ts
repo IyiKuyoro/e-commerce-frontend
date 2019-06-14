@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
+
 import IProduct from 'src/app/shared/models/IProduct';
 import { IDepartment } from 'src/app/shared/models/IDepartment';
 import { ActivatedRoute } from '@angular/router';
@@ -24,6 +25,8 @@ export class ProductsComponent implements OnInit {
   selectedDepartment: number;
   selectedCategory: number;
   faEnvelope = faEnvelope;
+  dispMobHero = false;
+  faTimes = faTimes;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +43,10 @@ export class ProductsComponent implements OnInit {
     this.totalProducts = this.route.snapshot.data.resolvedData.pageMeta.totalProducts;
     this.departments = this.route.snapshot.data.resolvedDepartments.departments;
     this.computePages();
+  }
+
+  toggleHero(): void {
+    this.dispMobHero = !this.dispMobHero;
   }
 
   computePages() {

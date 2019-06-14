@@ -1,3 +1,63 @@
+<div class="cats">
+  <button (click)="toggleHero()" class="mens">
+    <span *ngIf="!dispMobHero">Mens</span>
+    <fa-icon [icon]="faTimes" *ngIf="dispMobHero"></fa-icon>
+  </button>
+</div>
+<section class="hero">
+  <h2 class="hero-header">Mens Wear</h2>
+  <ul class="grid-item accessories">
+    <li>Accessories</li>
+    <li>ASOS Basic Tops</li>
+    <li>Bags</li>
+    <li>Caps & Hats</li>
+    <li>Gifts</li>
+    <li>Grooming</li>
+  </ul>
+  <ul class="grid-item hood">
+    <li>Hoodies & Sweatshirts</li>
+    <li>Jackets and Coats</li>
+    <li>Jeans</li>
+    <li>Jewellery</li>
+    <li>Joggers</li>
+    <li>Jumpers & Cardigans</li>
+  </ul>
+  <ul class="grid-item leather">
+    <li>Leather Jackets</li>
+    <li>Long Sleeve T-Shirts</li>
+    <li>Loungewear</li>
+    <li>Oversized & Longline</li>
+    <li>Polo Shirts</li>
+    <li>Shirts</li>
+  </ul>
+</section>
+<section *ngIf="dispMobHero" class="mobile-hero">
+  <h2 class="hero-header">Mens Wear</h2>
+  <ul class="grid-item accessories">
+    <li>Accessories</li>
+    <li>ASOS Basic Tops</li>
+    <li>Bags</li>
+    <li>Caps & Hats</li>
+    <li>Gifts</li>
+    <li>Grooming</li>
+  </ul>
+  <ul class="grid-item hood">
+    <li>Hoodies & Sweatshirts</li>
+    <li>Jackets and Coats</li>
+    <li>Jeans</li>
+    <li>Jewellery</li>
+    <li>Joggers</li>
+    <li>Jumpers & Cardigans</li>
+  </ul>
+  <ul class="grid-item leather">
+    <li>Leather Jackets</li>
+    <li>Long Sleeve T-Shirts</li>
+    <li>Loungewear</li>
+    <li>Oversized & Longline</li>
+    <li>Polo Shirts</li>
+    <li>Shirts</li>
+  </ul>
+</section>
 <section class="products">
     <div class="product-display">
       <div class="filter-controls">
