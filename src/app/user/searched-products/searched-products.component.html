@@ -1,0 +1,19 @@
+<div *ngIf="products.length > 0" class="products">
+  <div (click)="viewProduct(product.product_id)" class="product-card" *ngFor="let product of products">
+    <img [src]="product.thumbnail | cloudinary" alt="product image">
+    <div class="product-details">
+      <h1>{{product.name}}</h1>
+      <p>{{product.description}}</p>
+      <p>
+        <span [ngClass]="{discount: +product.discounted_price}">{{product.price | currency:"GBP"}}</span>
+        <span *ngIf="+product.discounted_price">{{product.discounted_price | currency:"GBP"}}</span>
+      </p>
+      <button class="cart-add">Add to Cart</button>
+    </div>
+  </div>
+</div>
+<div class="pages" *ngIf="pages.length > 1">
+  <span *ngIf="+currentPage - 1 > 1">...</span>
+  <button (click)="changePage(page)" *ngFor="let page of pages">{{page}}</button>
+  <span *ngIf="+currentPage + 3 < totalPages">...</span>
+</div>

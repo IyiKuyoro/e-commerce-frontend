@@ -12,6 +12,8 @@ import { AngularMaterialModule } from '../angular-material.module';
 import { ProductComponent } from './product/product.component';
 import { GoogleAuthComponent } from './google-auth/google-auth.component';
 import { ProductsComponent } from './products/products.component';
+import { SearchedProductsComponent } from './searched-products/searched-products.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,8 @@ import { ProductsComponent } from './products/products.component';
     ProductComponent,
     GoogleAuthComponent,
     ProductsComponent,
+    SearchedProductsComponent,
+    NotfoundComponent,
   ],
   providers: [],
 })

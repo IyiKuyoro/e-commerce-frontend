@@ -3,11 +3,11 @@ import { SocialRedirectComponent } from './social-redirect/social-redirect.compo
 
 export const routes: Routes = [
   {
-    path: '',
-    loadChildren: './user/user.module#UserModule',
-  },
-  {
     path: 'google/redirect',
     component: SocialRedirectComponent,
+  },
+  {
+    path: '',
+    loadChildren: './user/user.module#UserModule',
   }
 ];

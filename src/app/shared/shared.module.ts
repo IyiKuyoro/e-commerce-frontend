@@ -10,6 +10,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.component';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AngularMaterialModule } from '../angular-material.module';
     HttpClientModule,
     RouterModule,
     AngularMaterialModule,
+    FormsModule,
   ],
   exports: [
     HeaderComponent,
