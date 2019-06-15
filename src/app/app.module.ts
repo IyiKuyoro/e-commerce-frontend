@@ -16,6 +16,7 @@ import { DepartmentService } from './user/products/services/Department.service';
 import { CategoryService } from './user/products/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
 import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
+import { ProductSearchService } from './user/searched-products/Services/SearchProducts.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SocialRedirectComponent } from './social-redirect/social-redirect.compo
     GlobalService,
     ProductService,
     ProductDetailsService,
+    ProductSearchService,
   ],
   bootstrap: [AppComponent]
 })

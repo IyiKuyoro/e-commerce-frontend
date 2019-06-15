@@ -9,6 +9,9 @@ import { DepartmentResolverService } from './home/resolvers/department.resolver'
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsResolverService } from './product/resolvers/ProductDetails.resolver';
 import { ProductsComponent } from './products/products.component';
+import { SearchedProductsComponent } from './searched-products/searched-products.component';
+import { ProductSearchResolverService } from './searched-products/resolver/SearchProducts.resolver';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 export const userRoutes: Routes = [
   {
@@ -33,13 +36,24 @@ export const userRoutes: Routes = [
         }
       },
       {
+        path: 'search/:searchText',
+        component: SearchedProductsComponent,
+        resolve: {
+          resolvedProducts: ProductSearchResolverService
+        }
+      },
+      {
         path: '',
         component: ProductsComponent,
         resolve: {
           resolvedData: ProductResolverService,
           resolvedDepartments: DepartmentResolverService,
         },
-      }
+      },
+      {
+        path: '**',
+        component: NotfoundComponent,
+      },
     ],
   }
 ];
