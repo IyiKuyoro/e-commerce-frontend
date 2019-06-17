@@ -1,4 +1,4 @@
-<div class="shopping-bag">
+<div class="shopping-bag" [routerLink]="['/shoppingCart']" routerLinkActive="router-link-active" >
   <img class="bag" src="../../assets/images/icons-bag-white.png" alt="shopping bag">
   <div *ngIf="itemCount" class="flex flex-dir-col flex-ct item-count flex-ele-tr">
     {{itemCount}}

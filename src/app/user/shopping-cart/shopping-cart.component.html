@@ -1,0 +1,49 @@
+<div class="contain flex">
+  <aside class="flex flex-col summary">
+    <h2>Summary</h2>
+    <label>
+      Total Items:
+      <input type="text" [value]="products.length" readonly/>
+    </label>
+    <label>
+      Total Cost:
+      <input type="text" [value]="totalPrice | currency:'GBP'" readonly/>
+    </label>
+  </aside>
+  <section class="flex flex-col products-list">
+    <h2>Shopping Cart Contents</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th class="sng-price">Single Price</th>
+        <th>Cost</th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td class="name">
+          {{product.name}}
+          <span>
+            <button (click)="removeItem(product.item_id)" class="controls"><i class="fas fa-trash-alt"></i></button>
+          </span>
+        </td>
+        <td class="">
+          {{product.quantity}}
+          <span>
+            <button (click)="subtractProduct(product.item_id, product.quantity)" class="controls"><i class="minus fas fa-minus"></i></button>
+            <button (click)="addProduct(product.item_id, product.quantity)" class="controls"><i class="plus fas fa-plus"></i></button>
+          </span>
+        </td> 
+        <td class="sng-price">{{product.price | currency:"GBP"}}</td>
+        <td>{{product.subtotal | currency:"GBP"}}</td>
+      </tr>
+      <tr class="total">
+        <td>Total</td>
+        <td>{{itemCount()}}</td>
+        <td class="sng-price"></td>
+        <td>{{totalPrice | currency:"GBP"}}</td>
+      </tr>
+    </table>
+    <button class="buy" *ngIf="checkAuth()">Buy Now</button>
+    <button class="buy" [routerLink]="['/login']" routerLinkActive="router-link-active"  *ngIf="!checkAuth()">Login To Place Order</button>
+  </section>
+</div>
