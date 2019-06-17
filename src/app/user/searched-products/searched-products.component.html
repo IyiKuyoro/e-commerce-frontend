@@ -8,7 +8,7 @@
         <span [ngClass]="{discount: +product.discounted_price}">{{product.price | currency:"GBP"}}</span>
         <span *ngIf="+product.discounted_price">{{product.discounted_price | currency:"GBP"}}</span>
       </p>
-      <button class="cart-add">Add to Cart</button>
+      <button (click)="onAddProduct($event, product.product_id)" class="cart-add">Add to Cart</button>
     </div>
   </div>
 </div>

@@ -19,6 +19,20 @@ export default interface IApiResponse {
   image?: string;
   image2?: string;
   thumbnail?: string;
+
+  cartId?: string;
+  products?: ICartProduct[];
+
+  totalAmount?: number;
+}
+
+export interface ICartProduct {
+  item_id: number;
+  name: string;
+  attributes: string;
+  price: number;
+  quantity: number;
+  subtotal: number;
 }
 
 export interface IPageMeta {
