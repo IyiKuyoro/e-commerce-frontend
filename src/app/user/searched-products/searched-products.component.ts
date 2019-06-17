@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import IProduct from 'src/app/shared/models/IProduct';
 import { ProductSearchService, AllWords } from './Services/SearchProducts.service';
 import IApiResponse from 'src/app/shared/models/IApiResponse';
+import { CartService } from 'src/app/shared/services/Cart.Service';
 
 @Component({
   selector: 'app-searched-products',
@@ -22,6 +23,7 @@ export class SearchedProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private productSearchService: ProductSearchService,
     private router: Router,
+    private cartService: CartService,
   ) {
     this.text = this.route.snapshot.params.searchText;
     this.assignValues(
@@ -105,5 +107,10 @@ export class SearchedProductsComponent implements OnInit {
 
   viewProduct(productId: number) {
     this.router.navigateByUrl(`/product/${productId}`);
+  }
+
+  onAddProduct(event: any, productId: number) {
+    event.stopPropagation();
+    this.cartService.addProduct(productId).subscribe();
   }
 }

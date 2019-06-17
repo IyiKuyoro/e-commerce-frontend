@@ -14,6 +14,7 @@ import { GoogleAuthComponent } from './google-auth/google-auth.component';
 import { ProductsComponent } from './products/products.component';
 import { SearchedProductsComponent } from './searched-products/searched-products.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ProductsComponent,
     SearchedProductsComponent,
     NotfoundComponent,
+    ShoppingCartComponent,
   ],
   providers: [],
 })

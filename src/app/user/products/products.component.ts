@@ -8,6 +8,7 @@ import { ICategory } from 'src/app/shared/models/ICategory';
 import IApiResponse from 'src/app/shared/models/IApiResponse';
 import { ProductService } from './services/Products.service';
 import { CategoryService } from './services/Category.service';
+import { CartService } from 'src/app/shared/services/Cart.Service';
 
 @Component({
   selector: 'app-products',
@@ -32,6 +33,7 @@ export class ProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService,
     private categoryService: CategoryService,
+    private cartService: CartService,
   ) { }
 
   ngOnInit() {
@@ -80,6 +82,11 @@ export class ProductsComponent implements OnInit {
   onCategoryChange(event: any) {
     this.selectedCategory = event.value;
     this.getProductsByCategory(+event.value);
+  }
+
+  onAddProduct(event: any, productId: number) {
+    event.stopPropagation();
+    this.cartService.addProduct(productId).subscribe();
   }
 
   private getCategories(departmentId: number) {

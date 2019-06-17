@@ -1,0 +1,135 @@
+$shop-red: #F62F5E;
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.contain {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+aside {
+  max-width: 400px;
+  margin-right: 10px;
+}
+
+aside h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+aside label {
+  width: 100%;
+}
+
+aside input {
+  height: 35px;
+  text-align: left;
+  font-size: 1.0rem;
+  border: none;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.buy {
+  background-color: #F62F5E;
+  color: white;
+  height: 40px;
+  border: none;
+  width: 70%;
+  max-width: 200px;
+  margin: 15px auto;
+  font-size: 1.0rem;
+}
+
+.products-list {
+  width: 100%;
+}
+
+.products-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+table {
+  width: 80%;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+.products-list {
+  overflow-x: scroll;
+}
+
+table, th, tr {
+  border-collapse: collapse;
+}
+
+th, tr {
+  height: 40px;
+}
+
+table th {
+  background-color: rgb(82, 82, 82);
+  color: white;
+  text-align: left;
+}
+
+th {
+  font-size: 14px;
+}
+
+.quantity {
+  justify-content: space-between;
+}
+
+.quantity div {
+  margin-right: 10px;
+}
+
+.controls {
+  border: none;
+  background-color: #FFFFFF;
+  height: 25px;
+  margin: 2.5px;
+}
+
+.minus {
+  color: #1C1C1C;
+}
+
+.plus {
+  color: $shop-red;
+}
+
+.name {
+  justify-content: space-between;
+}
+
+.name button {
+  color: $shop-red;
+}
+
+.total {
+  font-weight:  bolder;
+}
+
+@media screen and (max-width: 850px) {
+  .summary {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .sng-price {
+    display: none;
+  }
+}

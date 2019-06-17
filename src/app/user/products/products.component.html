@@ -80,10 +80,11 @@
         routerLinkActive="router-link-active" >
         <h1>{{product.name}}</h1>
         <img [src]="product.thumbnail | cloudinary" alt="product image">
-        <p>{{product.price | currency:"GBP"}}</p>
+        <p *ngIf="+product.discounted_price === 0.00">{{product.price | currency:"GBP"}}</p>
+        <p *ngIf="+product.discounted_price !== 0.00">{{product.discounted_price | currency:"GBP"}}</p>
         <div class="description">
           {{product.description}}
-          <button>Buy now</button>
+          <button (click)="onAddProduct($event, product.product_id)">Add to Cart</button>
         </div>
       </div>
     </div>

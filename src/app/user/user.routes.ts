@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { SearchedProductsComponent } from './searched-products/searched-products.component';
 import { ProductSearchResolverService } from './searched-products/resolver/SearchProducts.resolver';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 export const userRoutes: Routes = [
   {
@@ -38,6 +39,13 @@ export const userRoutes: Routes = [
       {
         path: 'search/:searchText',
         component: SearchedProductsComponent,
+        resolve: {
+          resolvedProducts: ProductSearchResolverService
+        }
+      },
+      {
+        path: 'shoppingCart',
+        component: ShoppingCartComponent,
         resolve: {
           resolvedProducts: ProductSearchResolverService
         }

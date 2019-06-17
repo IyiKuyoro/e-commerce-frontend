@@ -8,14 +8,17 @@ import { AuthService } from '../shared/services/Auth.Service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public itemCount = 6;
-  public totalPrice = 3.00;
+  public itemCount;
+  public totalPrice;
   userName: string;
 
   constructor(
     private authService: AuthService,
     private cartService: CartService,
-  ) { }
+  ) {
+    this.itemCount = 0;
+    this.totalPrice = 0;
+  }
 
   ngOnInit() {
     this.cartService.totalPrice.subscribe((cost: number) => {
