@@ -1,0 +1,37 @@
+<section>
+  <div class="contain">
+    <div class="order-summary">
+      <h1>Order Summary</h1>
+      <div class="flex flex-sb figs">
+        <p>Item Count:</p>
+        <p>{{itemCount}}</p>
+      </div>
+      <div class="flex flex-sb figs">
+        <p>Total Cost:</p>
+        <p>{{totalCost | currency:"GBP"}}</p>
+      </div>
+      <div class="flex flex-sb add-fig">
+        <p>Delivery Address:</p>
+        <p id="address">{{address}}</p>
+      </div>
+    </div>
+    <form #paymentForm="ngForm">
+      <h1>Make payment</h1>
+      <input [(ngModel)]="cardholderName"
+        id="cardholder-name" class="payment-fields"
+        type="text" placeholder="Card Holder's Name"
+        name="cardholder-name"
+        required
+      >
+      <input [(ngModel)]="cardholderAddress"
+        id="cardholder-address" class="payment-fields"
+        type="text" placeholder="Billing Address"
+        name="cardholder-address"
+        required
+      >
+      <!-- placeholder for Elements -->
+      <div id="card-element"></div>
+      <button [disabled]="!paymentForm.valid" (click)="onSubmitPayment()" id="card-button">Submit Payment</button>
+    </form>
+  </div>
+</section>

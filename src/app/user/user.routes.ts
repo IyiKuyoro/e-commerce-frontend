@@ -13,6 +13,7 @@ import { SearchedProductsComponent } from './searched-products/searched-products
 import { ProductSearchResolverService } from './searched-products/resolver/SearchProducts.resolver';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { PayComponent } from './pay/pay.component';
 
 export const userRoutes: Routes = [
   {
@@ -46,9 +47,10 @@ export const userRoutes: Routes = [
       {
         path: 'shoppingCart',
         component: ShoppingCartComponent,
-        resolve: {
-          resolvedProducts: ProductSearchResolverService
-        }
+      },
+      {
+        path: 'pay',
+        component: PayComponent
       },
       {
         path: '',

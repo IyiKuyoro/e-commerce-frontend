@@ -18,6 +18,8 @@ import { CategoryService } from './user/products/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
 import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
 import { ProductSearchService } from './user/searched-products/Services/SearchProducts.service';
+import { FormsModule } from '@angular/forms';
+import { StripePaymentService } from './user/pay/services/StripePayment.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { ProductSearchService } from './user/searched-products/Services/SearchPr
     ProductService,
     ProductDetailsService,
     ProductSearchService,
+    StripePaymentService,
   ],
   bootstrap: [AppComponent]
 })

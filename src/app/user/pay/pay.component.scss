@@ -1,0 +1,95 @@
+$shop-red: #F62F5E;
+
+h1 {
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+section {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-sb {
+  justify-content: space-between;
+}
+
+.figs {
+  height: 40px;
+}
+
+#address {
+  max-width: 250px;
+  text-align: right;
+}
+
+.contain {
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+.payment-fields {
+  height: 40px;
+  width: 99%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-indent: 15px;
+}
+
+.payment-fields:first-of-type {
+  margin-top: 10px;
+}
+
+#card-button {
+  margin: 10px 0;
+  background-color: $shop-red;
+  width: 100%;
+  border: none;
+  height: 40px;
+  font-size: 15px;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+#card-button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(161, 161, 161);
+}
+
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
