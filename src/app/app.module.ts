@@ -18,8 +18,8 @@ import { CategoryService } from './user/products/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
 import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
 import { ProductSearchService } from './user/searched-products/Services/SearchProducts.service';
-import { StripePaymentService } from './user/pay/services/StripePayment.service';
 import { ProfileService } from './user/profile/services/Profile.service';
+import { StripePaymentService } from './user/pay/services/StripePayment.service';
 
 @NgModule({
   declarations: [
