@@ -16,6 +16,9 @@ import { SearchedProductsComponent } from './searched-products/searched-products
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PayComponent } from './pay/pay.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BioFormComponent } from './profile/bio-form/bio-form.component';
+import { AddressFormComponent } from './profile/address-form/address-form.component';
 
 @NgModule({
   imports: [
@@ -39,6 +42,9 @@ import { PayComponent } from './pay/pay.component';
     NotfoundComponent,
     ShoppingCartComponent,
     PayComponent,
+    ProfileComponent,
+    BioFormComponent,
+    AddressFormComponent,
   ],
   providers: [],
 })

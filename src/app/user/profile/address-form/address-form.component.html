@@ -1,0 +1,58 @@
+<form [formGroup]="addressForm" class="flex flex-col">
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.address1.valid && addressForm.controls['address1'].touched"
+  >Address cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label for="address1">Address1:</label>
+    <input id="address1" formControlName="address1" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.address2.valid && addressForm.controls['address2'].touched"
+  >Address cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label>Address2:</label>
+    <input formControlName="address2" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.city.valid && addressForm.controls['city'].touched"
+  >City cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label>City:</label>
+    <input formControlName="city" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.region.valid && addressForm.controls['region'].touched"
+  >Region cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label>Region:</label>
+    <input formControlName="region" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.postalCode.valid && addressForm.controls['postalCode'].touched"
+  >Postal code cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label>Postal Code:</label>
+    <input formControlName="postalCode" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!addressForm.controls.country.valid && addressForm.controls['country'].touched"
+  >Country cannot contain characters like +=!@#$%^&*()0-9</p>
+  <div class="flex full space">
+    <label>Country:</label>
+    <input formControlName="country" type=text>
+  </div>
+  <div class="flex full space">
+    <label>Shipping Region:</label>
+    <select (change)="c($event)" formControlName="shippingRegionId">
+      <option *ngFor="let region of shippingRegions" [value]="region.shipping_region_id">{{region.shipping_region}}</option>
+    </select>
+    <!-- <input formControlName="shippingRegionId" type=text> -->
+  </div>
+  <button (click)="saveAddress()" [disabled]="!addressForm.valid" id="save-btn">Save</button>
+</form>

@@ -1,5 +1,6 @@
 import IProduct from './IProduct';
 import { IDepartment } from './IDepartment';
+import ICustomer from './ICustomer';
 
 export default interface IApiResponse {
   success: boolean;
@@ -53,7 +54,17 @@ export interface IProductDetailsResolved {
   product?: IApiResponse;
 }
 
+export interface ICustomerInfoResolved {
+  error?: any;
+  customerInfo?: ICustomer;
+}
+
 export interface IDepartmentResolved {
   error?: any;
   departments?: IDepartment[];
+}
+
+export interface IShippingRegionsResolved {
+  error?: any;
+  shippingRegions?: any;
 }

@@ -6,11 +6,13 @@ import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import ICustomer from '../models/ICustomer';
 import IApiResponse from '../models/IApiResponse';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   constructor(
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   login(email: string, password: string) {
@@ -40,6 +42,7 @@ export class AuthService {
 
   logOut() {
     localStorage.clear();
+    this.router.navigateByUrl('/');
   }
 
   private saveUser(res: IApiResponse) {

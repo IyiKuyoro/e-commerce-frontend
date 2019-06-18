@@ -1,0 +1,66 @@
+$shop-red: #F62F5E;
+
+form {
+  margin: 0 auto;
+  max-width: 650px;
+  margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.full {
+  width: 100%;
+}
+
+.space {
+  margin: 10px 0;
+}
+
+.space:first-of-type {
+  margin-top: 0;
+}
+
+div input {
+  width: 100%;
+  max-width: 500px;
+  height: 30px;
+  font-size: 15px;
+}
+
+div select {
+  width: 100%;
+  max-width: 500px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 0;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+}
+
+#save-btn {
+  min-width: 200px;
+  height: 35px;
+  border: none;
+  background-color: $shop-red;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+#save-btn:disabled {
+  background-color: rgb(129, 129, 129);
+  cursor: not-allowed;
+}
+
+.error {
+  color: $shop-red;
+  text-align: center;
+  margin: 0;
+}

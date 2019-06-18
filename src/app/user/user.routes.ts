@@ -14,6 +14,10 @@ import { ProductSearchResolverService } from './searched-products/resolver/Searc
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PayComponent } from './pay/pay.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './guard/Auth.guard';
+import { ProfileResolverService } from './profile/resolvers/Profile.resolver';
+import { ShippingRegionsResolverService } from './profile/resolvers/ShippingRegions.resolver';
 
 export const userRoutes: Routes = [
   {
@@ -51,6 +55,15 @@ export const userRoutes: Routes = [
       {
         path: 'pay',
         component: PayComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          resolvedCustomer: ProfileResolverService,
+          resolvedShippingRegions: ShippingRegionsResolverService,
+        }
       },
       {
         path: '',

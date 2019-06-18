@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -18,13 +18,13 @@ import { CategoryService } from './user/products/services/Category.service';
 import { ProductDetailsService } from './user/product/services/Product.service';
 import { SocialRedirectComponent } from './social-redirect/social-redirect.component';
 import { ProductSearchService } from './user/searched-products/Services/SearchProducts.service';
-import { FormsModule } from '@angular/forms';
 import { StripePaymentService } from './user/pay/services/StripePayment.service';
+import { ProfileService } from './user/profile/services/Profile.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SocialRedirectComponent
+    SocialRedirectComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -46,6 +46,7 @@ import { StripePaymentService } from './user/pay/services/StripePayment.service'
     ProductDetailsService,
     ProductSearchService,
     StripePaymentService,
+    ProfileService,
   ],
   bootstrap: [AppComponent]
 })
