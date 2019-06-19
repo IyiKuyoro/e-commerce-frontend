@@ -88,7 +88,7 @@ export class CartService {
       withCredentials: true,
     };
 
-    return this.http.post<IApiResponse>(
+    return this.http.put<IApiResponse>(
       url,
       JSON.stringify({ quantity }),
       httpOptions,
@@ -109,15 +109,11 @@ export class CartService {
     const totPriceUrl = `${environment.backendUrl}/shoppingcart/totalAmount`;
 
     const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'text/plain',
-      }),
       withCredentials: true,
     };
 
-    return this.http.post<IApiResponse>(
+    return this.http.delete<IApiResponse>(
       url,
-      {},
       httpOptions,
     )
       .pipe(

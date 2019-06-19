@@ -53,21 +53,10 @@ export class AddressFormComponent implements OnInit {
       ),
     });
 
-    const regions = this.route.snapshot.data.resolvedShippingRegions.shippingRegions;
-    for (const region in regions) {
-      if (regions.hasOwnProperty(region)
-        && region !== 'success'
-        && region !== '0') {
-        this.shippingRegions.push(regions[region]);
-      }
-    }
+    this.shippingRegions = this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions;
   }
 
   ngOnInit() {
-  }
-
-  c(e: any) {
-    console.log(e.target.value);
   }
 
   saveAddress() {

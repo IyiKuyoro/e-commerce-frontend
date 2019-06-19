@@ -18,6 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './guard/Auth.guard';
 import { ProfileResolverService } from './profile/resolvers/Profile.resolver';
 import { ShippingRegionsResolverService } from './profile/resolvers/ShippingRegions.resolver';
+import { OrderComponent } from './order/order.component';
 
 export const userRoutes: Routes = [
   {
@@ -53,8 +54,14 @@ export const userRoutes: Routes = [
         component: ShoppingCartComponent,
       },
       {
+        path: 'order',
+        component: OrderComponent,
+        canActivate: [AuthGuard]
+      },
+      {
         path: 'pay',
-        component: PayComponent
+        component: PayComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile',

@@ -25,6 +25,23 @@ export default interface IApiResponse {
   products?: ICartProduct[];
 
   totalAmount?: number;
+
+  tax: ITax[];
+
+  shipping: IShipping[];
+}
+
+export interface IShipping {
+  shipping_id: number;
+  shipping_type: string;
+  shipping_cost: number;
+  shipping_region_id: number;
+}
+
+export interface ITax {
+  tax_id: number;
+  tax_type: string;
+  tax_percentage: number;
 }
 
 export interface ICartProduct {

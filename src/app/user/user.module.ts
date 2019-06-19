@@ -19,6 +19,10 @@ import { PayComponent } from './pay/pay.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BioFormComponent } from './profile/bio-form/bio-form.component';
 import { AddressFormComponent } from './profile/address-form/address-form.component';
+import { OrderComponent } from './order/order.component';
+import { TaxService } from './order/service/Tax.service';
+import { ShippingService } from './order/service/Shipping.service';
+import { OrderService } from './order/service/Order.service';
 
 @NgModule({
   imports: [
@@ -45,7 +49,12 @@ import { AddressFormComponent } from './profile/address-form/address-form.compon
     ProfileComponent,
     BioFormComponent,
     AddressFormComponent,
+    OrderComponent,
   ],
-  providers: [],
+  providers: [
+    TaxService,
+    ShippingService,
+    OrderService,
+  ],
 })
 export class UserModule { }

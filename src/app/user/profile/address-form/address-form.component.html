@@ -49,7 +49,7 @@
   </div>
   <div class="flex full space">
     <label>Shipping Region:</label>
-    <select (change)="c($event)" formControlName="shippingRegionId">
+    <select formControlName="shippingRegionId">
       <option *ngFor="let region of shippingRegions" [value]="region.shipping_region_id">{{region.shipping_region}}</option>
     </select>
     <!-- <input formControlName="shippingRegionId" type=text> -->
