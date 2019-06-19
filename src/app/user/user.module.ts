@@ -23,6 +23,7 @@ import { OrderComponent } from './order/order.component';
 import { TaxService } from './order/service/Tax.service';
 import { ShippingService } from './order/service/Shipping.service';
 import { OrderService } from './order/service/Order.service';
+import { PaymentOrderService } from './pay/services/PaymentOrder.service';
 
 @NgModule({
   imports: [
@@ -55,6 +56,7 @@ import { OrderService } from './order/service/Order.service';
     TaxService,
     ShippingService,
     OrderService,
+    PaymentOrderService,
   ],
 })
 export class UserModule { }

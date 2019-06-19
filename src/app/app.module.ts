@@ -20,6 +20,7 @@ import { SocialRedirectComponent } from './social-redirect/social-redirect.compo
 import { ProductSearchService } from './user/searched-products/Services/SearchProducts.service';
 import { StripePaymentService } from './user/pay/services/StripePayment.service';
 import { ProfileService } from './user/profile/services/Profile.service';
+import { PaymentOrderService } from './user/pay/services/PaymentOrder.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,10 @@ import { ProfileService } from './user/profile/services/Profile.service';
     ProductSearchService,
     StripePaymentService,
     ProfileService,
+    PaymentOrderService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }

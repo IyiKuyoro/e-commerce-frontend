@@ -5,19 +5,26 @@
         <p>Total Cost:</p>
         <p>{{totalCost | currency:"GBP"}}</p>
       </div>
+      <div class="flex flex-sb figs">
+        <p>Tax:</p>
+        <p>{{tax | currency:"GBP"}}</p>
+      </div>
+      <div class="flex flex-sb figs">
+        <p>Shipping:</p>
+        <p>{{shipping | currency:"GBP"}}</p>
+      </div>
+      <div id="grand-total" class="flex flex-sb figs">
+        <p>Paying:</p>
+        <p>{{grandTotal() | currency:"GBP"}}</p>
+      </div>
     </div>
     <form #paymentForm="ngForm">
       <h1>Make payment</h1>
+      <p *ngIf="formError" class="error">{{formError}}</p>
       <input [(ngModel)]="cardholderName"
         id="cardholder-name" class="payment-fields"
         type="text" placeholder="Card Holder's Name"
         name="cardholder-name"
-        required
-      >
-      <input [(ngModel)]="cardholderAddress"
-        id="cardholder-address" class="payment-fields"
-        type="text" placeholder="Billing Address"
-        name="cardholder-address"
         required
       >
       <!-- placeholder for Elements -->

@@ -48,12 +48,12 @@ export class AddressFormComponent implements OnInit {
         [Validators.required, Validators.pattern(/^[^+=!@#$%^&*()]+$/)]
       ),
       shippingRegionId: new FormControl(
-        this.route.snapshot.data.resolvedCustomer.customerInfo.shipping_region_id,
+        this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions[1].shipping_region_id,
         [Validators.required, Validators.pattern(/^[0-9]+$/)]
       ),
     });
 
-    this.shippingRegions = this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions;
+    this.shippingRegions = this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions.splice(1);
   }
 
   ngOnInit() {

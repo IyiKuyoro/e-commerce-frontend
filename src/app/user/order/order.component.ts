@@ -77,8 +77,8 @@ export class OrderComponent implements OnInit {
       this.shipping.toString(),
       this.taxInfo.tax_id.toString(),
     ).subscribe((res: IApiResponse) => {
-      console.log(res);
-      this.router.navigateByUrl('/pay');
+      this.cartService.clearCart();
+      this.router.navigateByUrl(`/pay/${res.orderId}`);
     }, () => {
       this.toastrService.error('Could not create that order at this time.');
     });
