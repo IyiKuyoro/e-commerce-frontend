@@ -1,0 +1,55 @@
+$shop-red: #F62F5E;
+
+p {
+  margin: 0;
+}
+
+.contain {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-sb {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.figs {
+  height: 40px;
+}
+
+#address {
+  max-width: 250px;
+  text-align: right;
+}
+
+div select {
+  margin-left: auto;
+  max-width: 500px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 0;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+}
+
+button {
+  margin: 10px 0;
+  background-color: $shop-red;
+  width: 100%;
+  border: none;
+  height: 40px;
+  font-size: 15px;
+  color: #ffffff;
+  border-radius: 3px;
+}

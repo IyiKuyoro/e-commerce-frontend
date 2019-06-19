@@ -43,7 +43,8 @@
         <td>{{totalPrice | currency:"GBP"}}</td>
       </tr>
     </table>
-    <button class="buy" *ngIf="checkAuth()">Buy Now</button>
+    <button class="buy" [routerLink]="['/order']" routerLinkActive="router-link-active"  *ngIf="checkAuth() && address">Buy Now</button>
     <button class="buy" [routerLink]="['/login']" routerLinkActive="router-link-active"  *ngIf="!checkAuth()">Login To Place Order</button>
+    <button class="buy" [routerLink]="['/profile']" routerLinkActive="router-link-active"  *ngIf="!address">Update address to purchase</button>
   </section>
 </div>

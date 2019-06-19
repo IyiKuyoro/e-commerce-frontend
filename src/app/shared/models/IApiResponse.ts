@@ -1,5 +1,6 @@
 import IProduct from './IProduct';
 import { IDepartment } from './IDepartment';
+import ICustomer from './ICustomer';
 
 export default interface IApiResponse {
   success: boolean;
@@ -24,6 +25,23 @@ export default interface IApiResponse {
   products?: ICartProduct[];
 
   totalAmount?: number;
+
+  tax: ITax[];
+
+  shipping: IShipping[];
+}
+
+export interface IShipping {
+  shipping_id: number;
+  shipping_type: string;
+  shipping_cost: number;
+  shipping_region_id: number;
+}
+
+export interface ITax {
+  tax_id: number;
+  tax_type: string;
+  tax_percentage: number;
 }
 
 export interface ICartProduct {
@@ -53,7 +71,17 @@ export interface IProductDetailsResolved {
   product?: IApiResponse;
 }
 
+export interface ICustomerInfoResolved {
+  error?: any;
+  customerInfo?: ICustomer;
+}
+
 export interface IDepartmentResolved {
   error?: any;
   departments?: IDepartment[];
+}
+
+export interface IShippingRegionsResolved {
+  error?: any;
+  shippingRegions?: any;
 }

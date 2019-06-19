@@ -1,0 +1,43 @@
+<form [formGroup]="bioForm" class="flex flex-col">
+  <p
+    class="error"
+    *ngIf="!bioForm.controls.name.valid && bioForm.controls['name'].touched"
+  >City cannot contain characters like +=!@#$%^&*()</p>
+  <div class="flex full space">
+    <label>Name:</label>
+    <input formControlName="name" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!bioForm.controls.email.valid && bioForm.controls['email'].touched"
+  >Must be an email</p>
+  <div class="flex full space">
+    <label>Email:</label>
+    <input formControlName="email" type=text>
+  </div>
+  <!-- <p
+    class="error"
+    *ngIf="!phoneForm.controls.dayPhone.valid && phoneForm.controls['dayPhone'].touched"
+  >Must be a number</p>
+  <div class="flex full space">
+    <label>Day Phone:</label>
+    <input formControlName="dayPhone" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!phoneForm.controls.evePhone.valid && phoneForm.controls['evePhone'].touched"
+  >Must be a number</p>
+  <div class="flex full space">
+    <label>Evening Phone:</label>
+    <input formControlName="evePhone" type=text>
+  </div>
+  <p
+    class="error"
+    *ngIf="!phoneForm.controls.mobPhone.valid && phoneForm.controls['mobPhone'].touched"
+  >Must be a number</p>
+  <div class="flex full space">
+    <label>Mobile Phone:</label>
+    <input formControlName="mobPhone" type=text>
+  </div> -->
+  <button [disabled]="!bioForm.valid" id="save-btn">Save</button>
+</form>

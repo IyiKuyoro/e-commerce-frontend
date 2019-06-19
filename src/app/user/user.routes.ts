@@ -13,6 +13,12 @@ import { SearchedProductsComponent } from './searched-products/searched-products
 import { ProductSearchResolverService } from './searched-products/resolver/SearchProducts.resolver';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { PayComponent } from './pay/pay.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './guard/Auth.guard';
+import { ProfileResolverService } from './profile/resolvers/Profile.resolver';
+import { ShippingRegionsResolverService } from './profile/resolvers/ShippingRegions.resolver';
+import { OrderComponent } from './order/order.component';
 
 export const userRoutes: Routes = [
   {
@@ -46,8 +52,24 @@ export const userRoutes: Routes = [
       {
         path: 'shoppingCart',
         component: ShoppingCartComponent,
+      },
+      {
+        path: 'order',
+        component: OrderComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'pay',
+        component: PayComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
         resolve: {
-          resolvedProducts: ProductSearchResolverService
+          resolvedCustomer: ProfileResolverService,
+          resolvedShippingRegions: ShippingRegionsResolverService,
         }
       },
       {

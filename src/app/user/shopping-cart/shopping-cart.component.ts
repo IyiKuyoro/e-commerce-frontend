@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/services/Cart.Service';
 import { ICartProduct } from 'src/app/shared/models/IApiResponse';
 import { AuthService } from 'src/app/shared/services/Auth.Service';
+import { ProfileService } from '../profile/services/Profile.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,12 +14,14 @@ import { AuthService } from 'src/app/shared/services/Auth.Service';
 export class ShoppingCartComponent implements OnInit {
   products: ICartProduct[];
   totalPrice: number;
+  address?: string;
 
   constructor(
     private cartService: CartService,
     private toastr: ToastrService,
     private authService: AuthService,
-  ) { }
+    private profileService: ProfileService,
+  ) {}
 
   ngOnInit() {
     this.cartService.products.subscribe((products: ICartProduct[]) => {
@@ -26,6 +29,9 @@ export class ShoppingCartComponent implements OnInit {
     });
     this.cartService.totalPrice.subscribe((totalPrice: number) => {
       this.totalPrice = totalPrice;
+    });
+    this.profileService.getUserInfo().subscribe((userInfo: any) => {
+      this.address = userInfo.address_1;
     });
   }
 

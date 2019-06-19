@@ -1,0 +1,32 @@
+<div class="contain">
+  <div class="order-summary">
+    <h1>Order Summary</h1>
+    <div class="flex flex-sb figs">
+      <p>Item Count:</p>
+      <p>{{itemCount}}</p>
+    </div>
+    <div class="flex flex-sb figs">
+      <p>Items Cost:</p>
+      <p>{{itemCost | currency:"GBP"}}</p>
+    </div>
+    <div class="flex flex-sb figs">
+      <p>Sales Tax:</p>
+      <p>{{tax | currency:"GBP"}}</p>
+    </div>
+    <div class="flex flex-sb">
+      <p>Shipping Method:</p>
+      <select (change)="onChangeShipping()" [(ngModel)]="shipping">
+        <option *ngFor="let type of shippingTypes" [value]="type.shipping_id">{{type.shipping_type}}</option>
+      </select>
+    </div>
+    <div class="flex flex-sb figs">
+      <p>Total Cost:</p>
+      <p>{{totalCost() | currency:"GBP"}}</p>
+    </div>
+    <div class="flex flex-sb add-fig">
+      <p>Delivery Address:</p>
+      <p id="address">{{address}}</p>
+    </div>
+    <button (click)="onSubmit()">Order</button>
+  </div>
+</div>
