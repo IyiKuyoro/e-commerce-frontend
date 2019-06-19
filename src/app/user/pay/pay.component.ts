@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { StripePaymentService } from './services/StripePayment.service';
+import { CartService } from 'src/app/shared/services/Cart.Service';
 
 @Component({
   selector: 'app-pay',
@@ -8,9 +9,7 @@ import { StripePaymentService } from './services/StripePayment.service';
   styleUrls: ['./pay.component.scss']
 })
 export class PayComponent implements OnInit, AfterViewInit {
-  itemCount: number;
   totalCost: number;
-  address: string;
   stripe: any;
   cardElement: any;
   cardholderName: string;
@@ -19,12 +18,13 @@ export class PayComponent implements OnInit, AfterViewInit {
   constructor(
     private toastr: ToastrService,
     private stripePaymentService: StripePaymentService,
+    private cartService: CartService,
   ) {}
 
   ngOnInit() {
-    this.itemCount = 9;
-    this.totalCost = 200.00;
-    this.address = 'No 18, CAC Avenue, Irepo Estate Ikotun Lagos, Nigeria.'
+    this.cartService.totalPrice.subscribe((value) => {
+      this.totalCost = value;
+    });
   }
 
   ngAfterViewInit() {

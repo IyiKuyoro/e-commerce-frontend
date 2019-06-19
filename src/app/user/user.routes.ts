@@ -73,15 +73,6 @@ export const userRoutes: Routes = [
         }
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
-        canActivate: [AuthGuard],
-        resolve: {
-          resolvedCustomer: ProfileResolverService,
-          resolvedShippingRegions: ShippingRegionsResolverService,
-        }
-      },
-      {
         path: '',
         component: ProductsComponent,
         resolve: {
