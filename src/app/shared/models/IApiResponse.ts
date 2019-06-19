@@ -26,9 +26,21 @@ export default interface IApiResponse {
 
   totalAmount?: number;
 
-  tax: ITax[];
+  tax?: ITax[];
 
-  shipping: IShipping[];
+  shipping?: IShipping[];
+
+  orderId?: number;
+
+  order: IOrder;
+}
+
+export interface IOrder {
+  order_id?: number;
+  total_amount?: number;
+  created_on?: string;
+  shipped_on?: string;
+  status?: number;
 }
 
 export interface IShipping {
@@ -42,6 +54,15 @@ export interface ITax {
   tax_id: number;
   tax_type: string;
   tax_percentage: number;
+}
+
+export interface IOrderShortDetails {
+  order_id: number;
+  total_amount: number;
+  created_on: string;
+  shipped_on: string;
+  status: string;
+  name: string;
 }
 
 export interface ICartProduct {
@@ -69,6 +90,11 @@ export interface IProductResolved {
 export interface IProductDetailsResolved {
   error?: any;
   product?: IApiResponse;
+}
+
+export interface IOrderResolved {
+  error?: any;
+  orderShortDetails?: IApiResponse;
 }
 
 export interface ICustomerInfoResolved {

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backendUrl: 'http://localhost:4000/api/v1',
+  stipePK: 'pk_test_Aqc0LGeHxoGYpOs62YZ6vpjm00ouE9scPx',
 };
 
 /*

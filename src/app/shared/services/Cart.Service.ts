@@ -127,6 +127,12 @@ export class CartService {
       );
   }
 
+  clearCart() {
+    this.itemCount.next(0);
+    this.totalPrice.next(0.00);
+    this.products.next([]);
+  }
+
   private changeSummary = (res: IApiResponse) => {
     if (res.success) {
       this.itemCount.next(res.products.length);

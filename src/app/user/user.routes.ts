@@ -19,6 +19,7 @@ import { AuthGuard } from './guard/Auth.guard';
 import { ProfileResolverService } from './profile/resolvers/Profile.resolver';
 import { ShippingRegionsResolverService } from './profile/resolvers/ShippingRegions.resolver';
 import { OrderComponent } from './order/order.component';
+import { PaymentOrderResolverService } from './pay/resolver/PaymentOrder.resolver';
 
 export const userRoutes: Routes = [
   {
@@ -52,6 +53,7 @@ export const userRoutes: Routes = [
       {
         path: 'shoppingCart',
         component: ShoppingCartComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'order',
@@ -59,9 +61,12 @@ export const userRoutes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'pay',
+        path: 'pay/:orderId',
         component: PayComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        resolve: {
+          resolvedOrder: PaymentOrderResolverService,
+        }
       },
       {
         path: 'profile',
