@@ -8,6 +8,7 @@
   <p *ngIf="getUser()" class="userName" mat-button [matMenuTriggerFor]="menu">{{userName}}</p>
   <mat-menu #menu="matMenu">
     <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</button>
+    <button mat-menu-item [routerLink]="['/orders']" routerLinkActive="router-link-active" >Orders</button>
     <button mat-menu-item (click)="onLogOut()">Log Out</button>
   </mat-menu>
   <ul class="flex">

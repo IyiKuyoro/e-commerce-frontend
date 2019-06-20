@@ -21,6 +21,7 @@ import { ProductSearchService } from './user/searched-products/Services/SearchPr
 import { StripePaymentService } from './user/pay/services/StripePayment.service';
 import { ProfileService } from './user/profile/services/Profile.service';
 import { PaymentOrderService } from './user/pay/services/PaymentOrder.service';
+import { OrdersService } from './user/orders/services/orders.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PaymentOrderService } from './user/pay/services/PaymentOrder.service';
     StripePaymentService,
     ProfileService,
     PaymentOrderService,
+    OrdersService,
   ],
   bootstrap: [
     AppComponent,

@@ -27,6 +27,7 @@
         *ngIf="!getUser()"
         tabindex="1"
       >Register</a>
+      <button (click)="closeSideNav()" [routerLink]="['/orders']" routerLinkActive="router-link-active"  *ngIf="getUser()">Orders</button>
       <button (click)="onLogOut()" *ngIf="getUser()">Log Out</button>
     </div>
   </mat-sidenav>

@@ -1,0 +1,47 @@
+$shop-red: #F62F5E;
+
+.contain {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  overflow-x: scroll;
+}
+
+table {
+  width: 50%;
+  min-width: 300px;
+  margin: 20px auto;
+}
+
+button {
+  background-color: $shop-red;
+  border: none;
+  height: 35px;
+  width: 80%;
+  margin: 0 auto;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+button:first-of-type {
+  margin-right: 5px;
+}
+
+.action-btns {
+  display: flex;
+}
+
+tr {
+  height: 40px;
+}
+
+table, th, tr {
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: rgb(82, 82, 82);
+  color: white;
+}
