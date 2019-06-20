@@ -1,0 +1,24 @@
+<div class="contain">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Total Cost</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{orders.indexOf(order) + 1}}</td>
+      <td>{{order.created_on | date}}</td>
+      <td>{{order.total_amount | currency:"GBP"}}</td>
+      <td *ngIf="+order.status === 0">pending</td>
+      <td *ngIf="+order.status === 1">paid</td>
+      <td>
+        <div class="action-btns">
+          <button [routerLink]="'/pay/'+order.order_id" routerLinkActive="router-link-active"  *ngIf="+order.status === 0">Pay</button>
+          <button (click)="comingSoon()">View</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -24,6 +24,7 @@ import { TaxService } from './order/service/Tax.service';
 import { ShippingService } from './order/service/Shipping.service';
 import { OrderService } from './order/service/Order.service';
 import { PaymentOrderService } from './pay/services/PaymentOrder.service';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { PaymentOrderService } from './pay/services/PaymentOrder.service';
     BioFormComponent,
     AddressFormComponent,
     OrderComponent,
+    OrdersComponent,
   ],
   providers: [
     TaxService,

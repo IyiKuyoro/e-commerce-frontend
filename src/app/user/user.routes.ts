@@ -20,6 +20,8 @@ import { ProfileResolverService } from './profile/resolvers/Profile.resolver';
 import { ShippingRegionsResolverService } from './profile/resolvers/ShippingRegions.resolver';
 import { OrderComponent } from './order/order.component';
 import { PaymentOrderResolverService } from './pay/resolver/PaymentOrder.resolver';
+import { OrdersComponent } from './orders/orders.component';
+import { OrdersResolverService } from './orders/resolver/orders.resolver';
 
 export const userRoutes: Routes = [
   {
@@ -59,6 +61,14 @@ export const userRoutes: Routes = [
         path: 'order',
         component: OrderComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          resolvedOrders: OrdersResolverService,
+        }
       },
       {
         path: 'pay/:orderId',

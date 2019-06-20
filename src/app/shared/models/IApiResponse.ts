@@ -32,7 +32,9 @@ export default interface IApiResponse {
 
   orderId?: number;
 
-  order: IOrder;
+  order?: IOrder;
+
+  orders?: IOrder[];
 }
 
 export interface IOrder {
@@ -54,6 +56,11 @@ export interface ITax {
   tax_id: number;
   tax_type: string;
   tax_percentage: number;
+}
+
+export interface IOrdersResolved {
+  orders?: IOrder[];
+  error?: any;
 }
 
 export interface IOrderShortDetails {
