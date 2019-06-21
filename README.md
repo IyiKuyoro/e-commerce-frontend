@@ -1,27 +1,35 @@
 # ECommerceFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+![home page image](https://res.cloudinary.com/iyikuyoro/image/upload/v1561122561/turin/Screenshot_2019-06-21_at_1.50.36_PM.png "SHOPMATE")
 
-## Development server
+This project is the frontend application for an e-commerce platform named Shopmate.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Programming Language**: TypeScript
+- **Framework**: Angular
+- **Runtime Engine**: NodeJs
+- **Testing Framework**: Jasmine
+- **E2E testing framework**: Cypress
 
-## Code scaffolding
+## Coding style
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+All code is written in line with the styles that have been setup by the Angular CLI as contained in the tslint.json file.
 
-## Build
+## Setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Setting up this application is easy. Install all dependencies by running `npm i` on your machine. No extra setup is needed to run the application in your local environment.
 
-## Running unit tests
+## Codebase structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+There are three main modules in the application.
 
-## Running end-to-end tests
+- **App module**: This module holds all the components that are used at the application level. This is also the module that bootstraps the angular application. In this module, most of the services used the the application are registered to give access around the application.
+- **User module**: This module holds all the components that have to do with customers on the application. It is a lazy loaded module from the angular module to give room for easy addition of an admins module in future. Some services that are specific to the user components are registered in this module.
+- **Shared module**: The shared modules contains all components that are expected to be shared across the application. There are no services registered in the module and all imported modules here are also exported so they can be used everywhere.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+In addition to the main modules, there are two routing modules and one Angular material module.
 
-## Further help
+- **App Routing module**: The app routing modules declares the routing configuration for the application. It lazy loads the user module.
+- **User Routing module**: The user routing module contains all customer routes configurations. Some resolvers and guards have been sued to secure and pre-load some routes.
+- **Angular Material module**: The angular materials module comes as a sort of convention to enable the usage of Angular material components in the application. This module holds all Angular material modules imports.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**NB**: It is valuable to note that most services, guards and resolvers have been placed just beside their components for easy of access.
