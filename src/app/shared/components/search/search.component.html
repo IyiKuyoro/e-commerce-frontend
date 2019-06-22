@@ -1,5 +1,5 @@
 <div class="search">
-  <fa-icon (click)="onChange()" class="icon" [icon]="faSearch"></fa-icon>
-  <input (change)="onChange()" type="text" placeholder="search anything" [(ngModel)]="searchText">
+  <fa-icon class="search-items" (click)="onChange()" class="icon" [icon]="faSearch"></fa-icon>
+  <input class="search-input" (change)="onChange()" type="text" placeholder="search anything" [(ngModel)]="searchText">
   <fa-icon (click)="clearBox()" class="close-icon" [icon]="faTimes"></fa-icon>
 </div>

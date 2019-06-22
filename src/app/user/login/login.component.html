@@ -5,14 +5,14 @@
     <p *ngIf="!loginForm.controls.email.valid && loginForm.controls['email'].touched">
       Please provide a valid email
     </p>
-    <input type="text" formControlName="email" placeholder=" ">
+    <input id="email" type="text" formControlName="email" placeholder=" ">
     <span>Email</span>
   </label>
   <label>
       <p *ngIf="!loginForm.controls.password.valid && loginForm.controls['password'].touched">
         Please provide a password
       </p>
-    <input type="password" formControlName="password" placeholder=" ">
+    <input id="password" type="password" formControlName="password" placeholder=" ">
     <span>Password</span>
   </label>
   <button
