@@ -23,8 +23,7 @@ export class SocialRedirectComponent implements OnInit {
       if (params.code) {
         this.authCode = params.code;
         this.scope = params.scope;
-        console.log(this.authCode);
-        console.log(this.scope);
+
         this.authService.socialAuth('google', this.authCode, this.scope)
           .subscribe((res) => {
             if (res.success) {

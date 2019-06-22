@@ -22,7 +22,6 @@ export class DepartmentService {
   }
 
   handleError(error: HttpErrorResponse) {
-    console.log(error.message);
     return throwError(error.message);
   }
 }

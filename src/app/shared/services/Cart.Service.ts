@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap, mergeMap } from 'rxjs/operators';
 
@@ -16,13 +16,12 @@ export class CartService {
     private http: HttpClient,
   ) {
     this.getProducts();
-    this.getCartId().subscribe();
   }
 
-  private getCartId(): Observable<IApiResponse> {
+  public getCartId(): Observable<IApiResponse> {
     const url = `${environment.backendUrl}/shoppingcart/generateUniqueId`;
 
-    return this.http.get<IApiResponse>(url, { withCredentials: true })
+    return this.http.get<IApiResponse>(url)
       .pipe(
         catchError(this.handleError)
       );
@@ -32,15 +31,22 @@ export class CartService {
     const url = `${environment.backendUrl}/shoppingcart`;
     const totPriceUrl = `${environment.backendUrl}/shoppingcart/totalAmount`;
 
-    this.http.get<IApiResponse>(url, { withCredentials: true })
+    this.http.get<IApiResponse>(url, {
+      headers: {
+        cartId: localStorage.getItem('cartId')
+      }
+    })
       .pipe(
         tap((res: IApiResponse) => {
           this.itemCount.next(res.products.length);
           this.products.next(res.products);
         }),
         mergeMap(() => this.http.get<IApiResponse>(
-          totPriceUrl,
-          { withCredentials: true },
+          totPriceUrl, {
+            headers: {
+              cartId: localStorage.getItem('cartId')
+            }
+          }
         )),
         tap((res: IApiResponse) => {
           this.totalPrice.next(res.totalAmount);
@@ -54,23 +60,24 @@ export class CartService {
     const url = `${environment.backendUrl}/shoppingcart/add`;
     const totPriceUrl = `${environment.backendUrl}/shoppingcart/totalAmount`;
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'text/plain',
-      }),
-      withCredentials: true,
-    };
-
     return this.http.post<IApiResponse>(
       url,
-      JSON.stringify({ productId }),
-      httpOptions,
+      { productId },
+      {
+        headers: {
+          cartId: localStorage.getItem('cartId')
+        }
+      }
     )
       .pipe(
         tap(this.changeSummary),
         mergeMap(() => this.http.get<IApiResponse>(
           totPriceUrl,
-          { withCredentials: true },
+          {
+            headers: {
+              cartId: localStorage.getItem('cartId')
+            }
+          },
         )),
         tap(this.changeTotal),
         catchError(this.handleError)
@@ -81,23 +88,24 @@ export class CartService {
     const url = `${environment.backendUrl}/shoppingcart/update/${itemId}`;
     const totPriceUrl = `${environment.backendUrl}/shoppingcart/totalAmount`;
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'text/plain',
-      }),
-      withCredentials: true,
-    };
-
     return this.http.put<IApiResponse>(
       url,
-      JSON.stringify({ quantity }),
-      httpOptions,
+      { quantity },
+      {
+        headers: {
+          cartId: localStorage.getItem('cartId')
+        }
+      },
     )
       .pipe(
         tap(this.changeSummary),
         mergeMap(() => this.http.get<IApiResponse>(
           totPriceUrl,
-          { withCredentials: true },
+          {
+            headers: {
+              cartId: localStorage.getItem('cartId')
+            }
+          },
         )),
         tap(this.changeTotal),
         catchError(this.handleError)
@@ -108,19 +116,23 @@ export class CartService {
     const url = `${environment.backendUrl}/shoppingcart/removeProduct/${itemId}`;
     const totPriceUrl = `${environment.backendUrl}/shoppingcart/totalAmount`;
 
-    const httpOptions = {
-      withCredentials: true,
-    };
-
     return this.http.delete<IApiResponse>(
       url,
-      httpOptions,
+      {
+        headers: {
+          cartId: localStorage.getItem('cartId')
+        }
+      },
     )
       .pipe(
         tap(this.changeSummary),
         mergeMap(() => this.http.get<IApiResponse>(
           totPriceUrl,
-          { withCredentials: true },
+          {
+            headers: {
+              cartId: localStorage.getItem('cartId')
+            }
+          },
         )),
         tap(this.changeTotal),
         catchError(this.handleError)
@@ -147,7 +159,6 @@ export class CartService {
   }
 
   handleError(error: HttpErrorResponse) {
-    console.log(error.message);
     return throwError(error.message);
   }
 }

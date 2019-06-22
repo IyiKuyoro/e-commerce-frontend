@@ -32,7 +32,7 @@
             <button (click)="subtractProduct(product.item_id, product.quantity)" class="controls"><i class="minus fas fa-minus"></i></button>
             <button (click)="addProduct(product.item_id, product.quantity)" class="controls"><i class="plus fas fa-plus"></i></button>
           </span>
-        </td> 
+        </td>
         <td class="sng-price">{{product.price | currency:"GBP"}}</td>
         <td>{{product.subtotal | currency:"GBP"}}</td>
       </tr>
@@ -43,7 +43,7 @@
         <td>{{totalPrice | currency:"GBP"}}</td>
       </tr>
     </table>
-    <button class="buy" [routerLink]="['/order']" routerLinkActive="router-link-active"  *ngIf="checkAuth() && address">Buy Now</button>
+    <button class="buy" [routerLink]="['/order']" routerLinkActive="router-link-active"  *ngIf="checkAuth() && address && +itemCount() > 0">Buy Now</button>
     <button class="buy" [routerLink]="['/login']" routerLinkActive="router-link-active"  *ngIf="!checkAuth()">Login To Place Order</button>
     <button class="buy" [routerLink]="['/profile']" routerLinkActive="router-link-active"  *ngIf="!address">Update address to purchase</button>
   </section>

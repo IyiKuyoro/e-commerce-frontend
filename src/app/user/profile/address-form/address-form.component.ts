@@ -60,7 +60,6 @@ export class AddressFormComponent implements OnInit {
   }
 
   saveAddress() {
-    console.log(this.addressForm);
     this.profileService.updateAddress({
       address1: this.addressForm.get('address1').value,
       address2: this.addressForm.get('address2').value,

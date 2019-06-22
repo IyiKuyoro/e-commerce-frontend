@@ -16,21 +16,18 @@ export class OrderService {
   createOrder(shippingId: string, taxId: string): Observable<IApiResponse> {
     const url = `${environment.backendUrl}/orders`;
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'text/plain',
-        Authorization: `Bearer ${this.authService.checkAuthentication().accessToken}`,
-      }),
-      withCredentials: true,
-    };
-
     return this.http.post<IApiResponse>(
       url,
-      JSON.stringify({
+      {
         shippingId,
         taxId,
-      }),
-      httpOptions,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${this.authService.checkAuthentication().accessToken}`,
+          cartId: localStorage.getItem('cartId')
+        }
+      },
     );
   }
 }

@@ -41,7 +41,8 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.clear();
+    localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
     this.router.navigateByUrl('/');
   }
 
@@ -77,8 +78,6 @@ export class AuthService {
   socialAuth(media: string, code: string, scope: string) {
     const url = `${environment.backendUrl}/auth/${media}/callback?code=${code}&scope=${scope}`;
 
-    console.log(url);
-
     return this.http.get<IApiResponse>(url)
       .pipe(
         tap(this.saveUser),
@@ -86,7 +85,6 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse) {
-    console.log(error.message);
     return throwError(error.message);
   }
 }
