@@ -65,7 +65,7 @@ export class PayComponent implements OnInit, AfterViewInit {
         ).subscribe(
           this.handleServerResponse,
           (error) => {
-            this.toastr.error(error.message);
+            this.toastr.error(error.error.error.message);
           }
         );
       }

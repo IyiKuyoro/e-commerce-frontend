@@ -3,7 +3,7 @@
     Hi
     <a [routerLink]="['/login']">Sign in</a>
     of
-    <a [routerLink]="['/register']"
+    <a id="register" [routerLink]="['/register']"
   >Register</a></span>
   <p *ngIf="getUser()" class="userName" mat-button [matMenuTriggerFor]="menu">{{userName}}</p>
   <mat-menu #menu="matMenu">

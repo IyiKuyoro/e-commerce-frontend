@@ -22,6 +22,9 @@ export class AddressFormComponent implements OnInit {
   ) {
     this.addressReadonly = true;
 
+    const shipReg = this.route.snapshot.data.resolvedCustomer.customerInfo.shipping_region_id
+      || this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions[1].shipping_region_id;
+
     this.addressForm = new FormGroup({
       address1: new FormControl(
         this.route.snapshot.data.resolvedCustomer.customerInfo.address_1,
@@ -48,7 +51,7 @@ export class AddressFormComponent implements OnInit {
         [Validators.required, Validators.pattern(/^[^+=!@#$%^&*()]+$/)]
       ),
       shippingRegionId: new FormControl(
-        this.route.snapshot.data.resolvedShippingRegions.shippingRegions.shippingRegions[1].shipping_region_id,
+        shipReg,
         [Validators.required, Validators.pattern(/^[0-9]+$/)]
       ),
     });

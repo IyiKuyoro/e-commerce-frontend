@@ -5,30 +5,30 @@
     <p *ngIf="!regForm.controls.name.valid && regForm.controls['name'].touched">
       Please provide a valid name
     </p>
-    <input formControlName="name" placeholder=" ">
+    <input id="name" formControlName="name" placeholder=" ">
     <span>Name</span>
   </label>
   <label>
     <p *ngIf="!regForm.controls.email.valid && regForm.controls['email'].touched">
       Please provide a valid email
     </p>
-    <input formControlName="email" placeholder=" ">
+    <input id="email" formControlName="email" placeholder=" ">
     <span>Email</span>
   </label>
   <label>
     <p *ngIf="!regForm.controls.password.valid && regForm.controls['password'].touched">
       Please provide a valid password
     </p>
-    <input type="password" formControlName="password" placeholder=" ">
+    <input id="password" type="password" formControlName="password" placeholder=" ">
     <span>Password</span>
   </label>
   <label>
     <p
       *ngIf="regForm.controls['confirmPassword'].value !== regForm.controls['password'].value  && regForm.controls['confirmPassword'].touched"
     >
-      Passwords must match
+      Password must match
     </p>
-    <input type="password" formControlName="confirmPassword" placeholder=" ">
+    <input id="confirm-password" type="password" formControlName="confirmPassword" placeholder=" ">
     <span>Confirm</span>
   </label>
   <button

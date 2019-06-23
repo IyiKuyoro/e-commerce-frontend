@@ -18,20 +18,17 @@ export class StripePaymentService {
   confirmPayment(payload: IStripeInfo): Observable<IApiResponse> {
     const url = `${environment.backendUrl}/stripe/charge/${payload.orderId}`;
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'text/plain',
-        Authorization: `Bearer ${this.authService.checkAuthentication().accessToken}`,
-      }),
-    };
-
     return this.http.post<IApiResponse>(
       url,
       {
         paymentMethodId: payload.paymentMethodId,
         paymentIntentId: payload.paymentIntentId,
       },
-      httpOptions,
+      {
+        headers: {
+          Authorization: `Bearer ${this.authService.checkAuthentication().accessToken}`,
+        }
+      },
     );
   }
 }
